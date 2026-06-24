@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bauzhen — Design System v2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --vinho-noite:  #28101A;
+  --vinho:        #4E1A28;
+  --vinho-medio:  #6B2538;
+  --ouro:         #C9A96E;
+  --ouro-claro:   #DFC28E;
+  --creme:        #FAF8F5;
+  --bege:         #F2E8DF;
+  --borda:        #E2D9D3;
+  --borda-warm:   #D4C0BA;
+  --rose-pale:    #EAD8D4;
+  --texto:        #1C1510;
+  --texto-muted:  #7A6D68;
+  --texto-fraco:  #B5A9A4;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--creme);
+  color: var(--texto);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── GOLD DIVIDER ── */
+.gold-line {
+  height: 0.5px;
+  background: linear-gradient(90deg, transparent 0%, var(--ouro) 20%, var(--ouro) 80%, transparent 100%);
+  opacity: 0.3;
+}
+
+/* ── COVER ── */
+.cover {
+  background: var(--vinho-noite);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 52px;
+}
+
+.cover-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.cover-version {
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ouro);
+  font-weight: 400;
+}
+
+.cover-tag {
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--rose-pale);
+  opacity: 0.35;
+  text-align: right;
+  line-height: 1.8;
+}
+
+.cover-brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(80px, 14vw, 180px);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--creme);
+  letter-spacing: -0.02em;
+  line-height: 0.88;
+  margin: auto 0;
+  padding: 80px 0;
+}
+
+.cover-brand em {
+  font-style: normal;
+  color: var(--ouro);
+}
+
+.cover-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-top: 0.5px solid var(--vinho-medio);
+  padding-top: 28px;
+}
+
+.cover-desc {
+  font-size: 12px;
+  color: var(--rose-pale);
+  font-weight: 300;
+  opacity: 0.4;
+  letter-spacing: 0.03em;
+  line-height: 1.7;
+  max-width: 360px;
+}
+
+.cover-year {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 13px;
+  color: var(--ouro);
+  font-style: italic;
+  opacity: 0.5;
+}
+
+/* ── SEÇÕES ── */
+.section {
+  padding: 88px 52px;
+  border-bottom: 0.5px solid var(--borda);
+}
+
+.section:last-child { border-bottom: none; }
+.section.dark  { background: var(--vinho-noite); border-bottom-color: var(--vinho-medio); }
+.section.warm  { background: var(--bege); }
+
+.section-eyebrow {
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--texto-fraco);
+  margin-bottom: 64px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.section-eyebrow::after {
+  content: '';
+  height: 0.5px;
+  background: var(--borda);
+  flex: 1;
+  max-width: 100px;
+}
+
+.section.dark .section-eyebrow         { color: var(--ouro); }
+.section.dark .section-eyebrow::after  { background: var(--vinho-medio); }
+
+/* ── LAYOUT UTILS ── */
+.two-col   { display: grid; grid-template-columns: 1fr 1fr; gap: 52px; }
+.three-col { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.comp-label {
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--texto-fraco);
+  margin-bottom: 18px;
+  display: block;
+}
+
+/* ── PALETA ── */
+.palette-group { margin-bottom: 52px; }
+.palette-group:last-child { margin-bottom: 0; }
+
+.palette-group-label {
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--texto-fraco);
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+.swatches { display: flex; }
+
+.swatch { flex: 1; }
+
+.swatch-block { height: 120px; }
+.swatches .swatch:first-child .swatch-block { border-radius: 4px 0 0 0; }
+.swatches .swatch:last-child  .swatch-block { border-radius: 0 4px 0 0; }
+.swatches .swatch:only-child  .swatch-block { border-radius: 4px 4px 0 0; }
+
+.swatch-info    { padding: 12px 0 0; }
+.swatch-name    { font-size: 12px; font-weight: 500; color: var(--texto); display: block; margin-bottom: 3px; }
+.swatch-hex     { font-size: 10px; color: var(--texto-fraco); font-family: monospace; display: block; }
+.swatch-role    { font-size: 9px; color: var(--texto-fraco); display: block; margin-top: 4px; line-height: 1.6; letter-spacing: 0.02em; }
+
+.ouro-note {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 14px;
+  color: var(--texto-muted);
+  line-height: 1.65;
+  max-width: 500px;
+  margin-top: 16px;
+}
+
+/* ── TIPOGRAFIA — SPECIMENS (dark) ── */
+.specimen {
+  padding: 56px 0;
+  border-bottom: 0.5px solid var(--vinho-medio);
+}
+.specimen:last-child { border-bottom: none; padding-bottom: 0; }
+
+.specimen-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 36px;
+}
+
+.specimen-label {
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ouro);
+  font-weight: 500;
+}
+
+.specimen-spec {
+  font-size: 10px;
+  color: var(--rose-pale);
+  opacity: 0.35;
+  font-family: monospace;
+  text-align: right;
+  line-height: 1.8;
+}
+
+/* type styles */
+.t-display-grande {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(64px, 11vw, 140px);
+  font-weight: 500;
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+  color: var(--creme);
+}
+.t-display-grande em { font-style: italic; font-weight: 300; color: var(--ouro); }
+
+.t-display {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(44px, 6.5vw, 80px);
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--rose-pale);
+}
+.t-display em { font-style: normal; color: var(--ouro-claro); }
+
+.t-h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(36px, 4.5vw, 58px);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  color: var(--creme);
+}
+.t-h1 em { font-style: italic; color: var(--ouro-claro); }
+
+.t-h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(28px, 3.5vw, 42px);
+  font-weight: 300;
+  line-height: 1.15;
+  color: var(--rose-pale);
+}
+.t-h2 em { font-style: italic; color: var(--ouro-claro); }
+
+/* ── SCALE TABLE ── */
+.scale-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.scale-table tr       { border-bottom: 0.5px solid var(--borda); }
+.scale-table tr:last-child { border-bottom: none; }
+.scale-table td       { padding: 20px 0; vertical-align: middle; }
+
+.scale-name {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--texto-fraco);
+  font-weight: 500;
+  width: 160px;
+}
+.scale-spec {
+  font-size: 10px;
+  color: var(--texto-fraco);
+  font-family: monospace;
+  text-align: right;
+  white-space: nowrap;
+  line-height: 1.8;
+}
+.scale-preview { font-family: 'Cormorant Garamond', serif; }
+
+/* ── ESPAÇAMENTO ── */
+.space-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 14px 0;
+  border-bottom: 0.5px solid var(--borda);
+}
+.space-row:last-child { border-bottom: none; }
+
+.space-block {
+  background: var(--vinho);
+  border-radius: 2px;
+  flex-shrink: 0;
+  opacity: 0.3;
+  height: 12px;
+}
+.space-label  { font-size: 12px; color: var(--texto-muted); font-weight: 300; flex: 1; }
+.space-token  { font-size: 10px; color: var(--texto-fraco); font-family: monospace; }
+
+/* ── BORDAS ── */
+.border-row {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  padding: 22px 0;
+  border-bottom: 0.5px solid var(--borda);
+}
+.border-row:last-child { border-bottom: none; }
+
+.border-sample { width: 100px; height: 52px; flex-shrink: 0; border-radius: 4px; }
+.border-label  { font-size: 13px; color: var(--texto-muted); font-weight: 300; }
+.border-spec   { font-size: 10px; color: var(--texto-fraco); font-family: monospace; display: block; margin-top: 4px; }
+
+/* ── BOTÕES ── */
+.btn-primary {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px; font-weight: 500;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  background: var(--vinho); color: var(--creme);
+  border: none; padding: 14px 32px;
+  border-radius: 100px; cursor: default;
+}
+
+.btn-ghost-dark {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px; font-weight: 400;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  background: transparent; color: var(--rose-pale);
+  border: 0.5px solid rgba(234,216,212,0.2);
+  padding: 14px 28px; border-radius: 100px; cursor: default;
+}
+
+.btn-ghost-light {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px; font-weight: 400;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  background: transparent; color: var(--texto-muted);
+  border: 0.5px solid var(--borda-warm);
+  padding: 14px 28px; border-radius: 100px; cursor: default;
+}
+
+.btn-gold {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px; font-weight: 500;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  background: transparent; color: var(--ouro);
+  border: 0.5px solid var(--ouro);
+  padding: 14px 32px; border-radius: 100px; cursor: default;
+}
+
+.btn-gold-filled {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px; font-weight: 500;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  background: var(--ouro); color: var(--vinho-noite);
+  border: none; padding: 14px 32px;
+  border-radius: 100px; cursor: default;
+}
+
+.btn-plano {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px; font-weight: 500;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  background: transparent; color: var(--texto);
+  border: 0.5px solid var(--borda-warm);
+  padding: 13px 24px; width: 100%;
+  border-radius: 100px; cursor: default;
+}
+
+.btn-plano-main {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px; font-weight: 500;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  background: var(--creme); color: var(--vinho);
+  border: none; padding: 13px 24px; width: 100%;
+  border-radius: 100px; cursor: default;
+}
+
+.btn-wpp {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: #2D6B47; color: #fff;
+  border: none; padding: 14px 28px;
+  border-radius: 100px; cursor: default;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px; font-weight: 500;
+  letter-spacing: 0.08em; text-transform: uppercase;
+}
+
+/* ── CARDS PLANO ── */
+.plano-card {
+  border: 0.5px solid var(--borda);
+  border-radius: 2px;
+  padding: 40px 32px;
+  background: var(--creme);
+}
+.plano-card.destaque { background: var(--vinho); border-color: var(--vinho); }
+
+.plano-card-tag {
+  font-size: 10px; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--texto-fraco);
+  display: block; margin-bottom: 22px;
+}
+.plano-card.destaque .plano-card-tag { color: var(--rose-pale); opacity: 0.55; }
+
+.plano-card-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px; font-weight: 300; font-style: italic;
+  color: var(--texto); margin-bottom: 4px;
+}
+.plano-card.destaque .plano-card-name { color: var(--creme); }
+
+.plano-card-price {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 52px; font-weight: 300;
+  color: var(--texto); line-height: 1; margin-top: 16px;
+}
+.plano-card.destaque .plano-card-price { color: var(--creme); }
+
+.plano-card-cur {
+  font-size: 18px; vertical-align: top;
+  margin-top: 10px; display: inline-block;
+  color: var(--texto-muted);
+  font-family: 'Cormorant Garamond', serif;
+}
+.plano-card.destaque .plano-card-cur { color: var(--rose-pale); }
+
+.plano-card-per {
+  font-size: 12px; color: var(--texto-fraco);
+  font-weight: 300; display: block; margin-top: 6px;
+}
+.plano-card.destaque .plano-card-per { color: var(--rose-pale); opacity: 0.5; }
+
+.plano-card-divider {
+  height: 0.5px; background: var(--borda); margin: 28px 0;
+}
+.plano-card.destaque .plano-card-divider { background: rgba(234,216,212,0.12); }
+
+/* ── DADO ── */
+.dado-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 80px; font-weight: 300; font-style: italic;
+  color: var(--vinho); line-height: 1;
+  letter-spacing: -0.03em;
+}
+.dado-label {
+  font-size: 13px; color: var(--texto);
+  font-weight: 400; margin-top: 14px;
+  line-height: 1.55; max-width: 280px;
+}
+.dado-fonte {
+  font-size: 9px; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--texto-fraco); margin-top: 8px;
+}
+
+/* ── TAG ── */
+.tag {
+  font-size: 10px; letter-spacing: 0.08em;
+  text-transform: uppercase; font-weight: 400;
+  padding: 5px 14px; border-radius: 100px;
+  border: 0.5px solid var(--borda-warm);
+  color: var(--texto-muted); display: inline-block;
+}
+
+/* ── INPUT ── */
+.input-dark {
+  width: 100%;
+  background: rgba(250,248,245,0.04);
+  border: 0.5px solid rgba(234,216,212,0.14);
+  border-radius: 4px; padding: 14px 18px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px; font-weight: 300;
+  color: rgba(250,248,245,0.85); outline: none;
+}
+.input-dark::placeholder { color: rgba(234,216,212,0.3); }
+
+/* ── RESOLVE ── */
+.resolve-strip {
+  display: flex; gap: 10px; align-items: flex-start;
+  padding: 14px 0; border-top: 0.5px solid var(--borda);
+  margin-top: 16px;
+}
+.resolve-label {
+  font-size: 9px; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--vinho);
+  font-weight: 500; flex-shrink: 0; padding-top: 2px;
+}
+.resolve-text {
+  font-size: 12px; color: var(--texto-muted);
+  font-style: italic; font-family: 'Cormorant Garamond', serif;
+  line-height: 1.55;
+}
+
+/* ── RITMO ── */
+.rhythm-track {
+  border-radius: 4px;
+  overflow: hidden;
+  border: 0.5px solid var(--borda);
+}
+.rhythm-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px 32px;
+}
+.rhythm-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic; font-size: 15px; font-weight: 300;
+}
+.rhythm-hex { font-size: 10px; font-family: monospace; opacity: 0.4; }
+
+/* ── RULE NOTE ── */
+.rule-note {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic; font-size: 14px;
+  color: var(--rose-pale); opacity: 0.5;
+  line-height: 1.7; max-width: 560px;
+  margin-top: 48px; padding-top: 40px;
+  border-top: 0.5px solid var(--vinho-medio);
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════
+     COVER
+══════════════════════════════ -->
+<div class="cover">
+  <div class="cover-top">
+    <span class="cover-version">Design System · v2.0</span>
+    <span class="cover-tag">Comunicação visual<br>para condomínios de alto padrão</span>
+  </div>
+
+  <div class="cover-brand">Bauzhen Ecoville<em>.</em>
+    <div style="font-family:'DM Sans',sans-serif; font-size:12px; font-weight:300; font-style:normal; letter-spacing:0.1em; color:var(--rose-pale); opacity:0.35; margin-top:18px;">por Bárbara Gon</div>
+  </div>
+
+  <div class="cover-bottom">
+    <p class="cover-desc">Sistema visual oficial — paleta, tipografia, espaçamento, componentes e ritmo de contraste.</p>
+    <span class="cover-year">Curitiba, 2025</span>
+  </div>
+</div>
+
+<div class="gold-line"></div>
+
+<!-- ══════════════════════════════
+     PALETA
+══════════════════════════════ -->
+<section class="section">
+  <p class="section-eyebrow">Paleta de cores</p>
+
+  <!-- Família Vinho -->
+  <div class="palette-group">
+    <p class="palette-group-label">Primárias — Família Vinho</p>
+    <div class="swatches">
+      <div class="swatch">
+        <div class="swatch-block" style="background:#28101A;"></div>
+        <div class="swatch-info">
+          <span class="swatch-name">Vinho Noite</span>
+          <span class="swatch-hex">#28101A</span>
+          <span class="swatch-role">Fundos escuros · contato · strip</span>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-block" style="background:#4E1A28;"></div>
+        <div class="swatch-info">
+          <span class="swatch-name">Vinho</span>
+          <span class="swatch-hex">#4E1A28</span>
+          <span class="swatch-role">Cor principal · manifesto · CTA · footer</span>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-block" style="background:#6B2538;"></div>
+        <div class="swatch-info">
+          <span class="swatch-name">Vinho Médio</span>
+          <span class="swatch-hex">#6B2538</span>
+          <span class="swatch-role">Hover · divisores internos sobre vinho</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Ouro -->
+  <div class="palette-group">
+    <p class="palette-group-label">Acento — Ouro <span style="font-weight:300; text-transform:none; letter-spacing:0; color:var(--texto-fraco); font-size:9px;">— usado com parcimônia</span></p>
+    <div class="swatches" style="max-width:360px;">
+      <div class="swatch">
+        <div class="swatch-block" style="background:#C9A96E; height:88px;"></div>
+        <div class="swatch-info">
+          <span class="swatch-name">Ouro</span>
+          <span class="swatch-hex">#C9A96E</span>
+          <span class="swatch-role">Logo sobre vinho · detalhes · btn Elite</span>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-block" style="background:#DFC28E; height:88px;"></div>
+        <div class="swatch-info">
+          <span class="swatch-name">Ouro Claro</span>
+          <span class="swatch-hex">#DFC28E</span>
+          <span class="swatch-role">Ênfase tipográfica sobre vinho escuro</span>
+        </div>
+      </div>
+    </div>
+    <p class="ouro-note">O ouro nunca preenche grandes áreas. Seu poder está na raridade — um ponto de luz no escuro.</p>
+  </div>
+
+  <!-- Neutras + Texto -->
+  <div class="two-col">
+    <div class="palette-group" style="margin-bottom:0;">
+      <p class="palette-group-label">Neutras — Creme</p>
+      <div class="swatches">
+        <div class="swatch">
+          <div class="swatch-block" style="background:#FAF8F5; border:0.5px solid #E2D9D3;"></div>
+          <div class="swatch-info">
+            <span class="swatch-name">Creme</span>
+            <span class="swatch-hex">#FAF8F5</span>
+            <span class="swatch-role">Background principal</span>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-block" style="background:#F2E8DF;"></div>
+          <div class="swatch-info">
+            <span class="swatch-name">Bege Quente</span>
+            <span class="swatch-hex">#F2E8DF</span>
+            <span class="swatch-role">Seção planos · alternância suave</span>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-block" style="background:#E2D9D3;"></div>
+          <div class="swatch-info">
+            <span class="swatch-name">Borda</span>
+            <span class="swatch-hex">#E2D9D3</span>
+            <span class="swatch-role">Divisores · bordas de cards</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="palette-group" style="margin-bottom:0;">
+      <p class="palette-group-label">Texto</p>
+      <div class="swatches">
+        <div class="swatch">
+          <div class="swatch-block" style="background:#1C1510;"></div>
+          <div class="swatch-info">
+            <span class="swatch-name">Principal</span>
+            <span class="swatch-hex">#1C1510</span>
+            <span class="swatch-role">Títulos · corpo</span>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-block" style="background:#7A6D68;"></div>
+          <div class="swatch-info">
+            <span class="swatch-name">Muted</span>
+            <span class="swatch-hex">#7A6D68</span>
+            <span class="swatch-role">Descrições · corpo leve</span>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-block" style="background:#B5A9A4;"></div>
+          <div class="swatch-info">
+            <span class="swatch-name">Fraco</span>
+            <span class="swatch-hex">#B5A9A4</span>
+            <span class="swatch-role">Labels · fontes discretas</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Rose + Utilitária -->
+  <div class="two-col" style="margin-top:52px;">
+    <div>
+      <p class="palette-group-label">Rose — Texto sobre fundos vinho</p>
+      <div class="swatches" style="max-width:280px;">
+        <div class="swatch">
+          <div class="swatch-block" style="background:#EAD8D4; height:80px;"></div>
+          <div class="swatch-info">
+            <span class="swatch-name">Rose Pálido</span>
+            <span class="swatch-hex">#EAD8D4</span>
+            <span class="swatch-role">Texto sobre vinho · placeholders · opacidades</span>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-block" style="background:#D4C0BA; height:80px;"></div>
+          <div class="swatch-info">
+            <span class="swatch-name">Rose Borda</span>
+            <span class="swatch-hex">#D4C0BA</span>
+            <span class="swatch-role">Tags · bordas decorativas claras</span>
+          </div>
+        </div>
+      </div>
+      <p style="font-size:11px; color:var(--texto-fraco); margin-top:12px; line-height:1.6;">Rose não é cor de ação. Nunca usar como fundo de botão CTA.</p>
+    </div>
+    <div>
+      <p class="palette-group-label">Utilitária</p>
+      <div class="swatches" style="max-width:120px;">
+        <div class="swatch" style="max-width:120px;">
+          <div class="swatch-block" style="background:#2D6B47; height:80px; border-radius:4px 4px 0 0;"></div>
+          <div class="swatch-info">
+            <span class="swatch-name">WhatsApp</span>
+            <span class="swatch-hex">#2D6B47</span>
+            <span class="swatch-role">Exclusivo para botão WhatsApp</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<div class="gold-line"></div>
+
+<!-- ══════════════════════════════
+     TIPOGRAFIA — SPECIMENS
+══════════════════════════════ -->
+<section class="section dark">
+  <p class="section-eyebrow">Tipografia — Specimens</p>
+
+  <!-- Display Grande -->
+  <div class="specimen">
+    <div class="specimen-meta">
+      <span class="specimen-label">Display Grande</span>
+      <span class="specimen-spec">Cormorant Garamond · 500<br>clamp(64px, 11vw, 140px)<br>leading 0.90 · tracking −0.03em</span>
+    </div>
+    <div class="t-display-grande">
+      Alto<br><em>padrão.</em>
+    </div>
+  </div>
+
+  <!-- Display / Manifesto -->
+  <div class="specimen">
+    <div class="specimen-meta">
+      <span class="specimen-label">Display Italic — Manifesto</span>
+      <span class="specimen-spec">Cormorant Garamond · Italic 300<br>clamp(44px, 6.5vw, 80px)<br>leading 1.05 · tracking −0.02em</span>
+    </div>
+    <div class="t-display">
+      Cada detalhe visual diz ao morador:<br><em>você está no lugar certo.</em>
+    </div>
+  </div>
+
+  <!-- H1 -->
+  <div class="specimen">
+    <div class="specimen-meta">
+      <span class="specimen-label">H1 — Título principal</span>
+      <span class="specimen-spec">Cormorant Garamond · 400<br>clamp(36px, 4.5vw, 58px)<br>leading 1.1 · tracking −0.01em</span>
+    </div>
+    <div class="t-h1">
+      Seu condomínio tem alto padrão.<br>
+      A comunicação interna também<br>
+      deveria <em>ter.</em>
+    </div>
+  </div>
+
+  <!-- H2 -->
+  <div class="specimen">
+    <div class="specimen-meta">
+      <span class="specimen-label">H2 — Título de seção</span>
+      <span class="specimen-spec">Cormorant Garamond · 300<br>clamp(28px, 3.5vw, 42px) · leading 1.15</span>
+    </div>
+    <div class="t-h2">O que eu <em>ofereço</em></div>
+  </div>
+
+  <!-- Body + Label -->
+  <div class="specimen two-col">
+    <div>
+      <div class="specimen-meta" style="margin-bottom:24px;">
+        <span class="specimen-label">Corpo</span>
+        <span class="specimen-spec">DM Sans · 300<br>14–15px · leading 1.75</span>
+      </div>
+      <p style="font-family:'DM Sans',sans-serif; font-size:14px; font-weight:300; line-height:1.75; color:var(--rose-pale); opacity:0.55; max-width:380px;">Criamos comunicados, campanhas educacionais e identidade visual para condomínios de alto padrão — com a consistência e o refinamento que o seu empreendimento exige.</p>
+    </div>
+    <div>
+      <div class="specimen-meta" style="margin-bottom:24px;">
+        <span class="specimen-label">Label / Eyebrow</span>
+        <span class="specimen-spec">DM Sans · 400–500<br>10–11px · tracking 0.14–0.16em · CAPS</span>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:16px;">
+        <span style="font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:var(--ouro); font-weight:400; font-family:'DM Sans',sans-serif;">Comunicação visual · Curitiba</span>
+        <span style="font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:var(--rose-pale); opacity:0.45; font-weight:500; font-family:'DM Sans',sans-serif;">Essencial · Plus · Elite</span>
+        <span style="font-size:9px; letter-spacing:0.12em; text-transform:uppercase; color:var(--vinho-medio); font-weight:500; font-family:'DM Sans',sans-serif;">Resolve</span>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<div class="gold-line"></div>
+
+<!-- ══════════════════════════════
+     ESCALA TIPOGRÁFICA
+══════════════════════════════ -->
+<section class="section">
+  <p class="section-eyebrow">Escala tipográfica</p>
+
+  <table class="scale-table">
+    <tr>
+      <td class="scale-name">Display Grande</td>
+      <td class="scale-preview" style="font-size:56px; font-weight:500; line-height:1; letter-spacing:-0.03em;">Alto padrão.</td>
+      <td class="scale-spec">Cormorant 500<br>clamp(64, 11vw, 140px)<br>leading 0.90</td>
+    </tr>
+    <tr>
+      <td class="scale-name">Display Italic</td>
+      <td class="scale-preview" style="font-size:40px; font-weight:300; font-style:italic; line-height:1.05; letter-spacing:-0.02em;">Refinamento silencioso.</td>
+      <td class="scale-spec">Cormorant Italic 300<br>clamp(44, 6.5vw, 80px)<br>leading 1.05</td>
+    </tr>
+    <tr>
+      <td class="scale-name">H1</td>
+      <td class="scale-preview" style="font-size:34px; font-weight:400; line-height:1.1; letter-spacing:-0.01em;">Título principal da página</td>
+      <td class="scale-spec">Cormorant 400<br>clamp(36, 4.5vw, 58px)<br>leading 1.1</td>
+    </tr>
+    <tr>
+      <td class="scale-name">H2</td>
+      <td class="scale-preview" style="font-size:26px; font-weight:300; line-height:1.15;">Título de seção</td>
+      <td class="scale-spec">Cormorant 300<br>clamp(28, 3.5vw, 42px)<br>leading 1.15</td>
+    </tr>
+    <tr>
+      <td class="scale-name">Número / Dado</td>
+      <td class="scale-preview" style="font-size:52px; font-weight:300; font-style:italic; line-height:1; letter-spacing:-0.03em; color:var(--vinho);">70%</td>
+      <td class="scale-spec">Cormorant Italic 300<br>72–80px · leading 1<br>tracking −0.03em</td>
+    </tr>
+    <tr>
+      <td class="scale-name">Corpo</td>
+      <td class="scale-preview" style="font-size:14px; font-weight:300; line-height:1.75; color:var(--texto-muted); font-family:'DM Sans',sans-serif;">Texto descritivo padrão da landing</td>
+      <td class="scale-spec">DM Sans 300<br>14–15px · leading 1.75</td>
+    </tr>
+    <tr>
+      <td class="scale-name">Label</td>
+      <td class="scale-preview" style="font-size:10px; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; color:var(--texto-fraco); font-family:'DM Sans',sans-serif;">EYEBROW · UPPERCASE</td>
+      <td class="scale-spec">DM Sans 400–500<br>10–11px<br>tracking 0.12–0.16em</td>
+    </tr>
+  </table>
+</section>
+
+<!-- ══════════════════════════════
+     ESPAÇAMENTO
+══════════════════════════════ -->
+<section class="section warm">
+  <p class="section-eyebrow">Espaçamento</p>
+
+  <div class="space-row"><div class="space-block" style="width:8px;"></div><span class="space-label">Gap mínimo — ícones, separadores</span><span class="space-token">8px</span></div>
+  <div class="space-row"><div class="space-block" style="width:14px;"></div><span class="space-label">Gap entre elementos de componente</span><span class="space-token">12–14px</span></div>
+  <div class="space-row"><div class="space-block" style="width:24px;"></div><span class="space-label">Gap entre elementos de seção</span><span class="space-token">24px</span></div>
+  <div class="space-row"><div class="space-block" style="width:48px;"></div><span class="space-label">Padding horizontal de colunas internas</span><span class="space-token">48px</span></div>
+  <div class="space-row"><div class="space-block" style="width:52px;"></div><span class="space-label">Padding horizontal de seção</span><span class="space-token">52px</span></div>
+  <div class="space-row"><div class="space-block" style="width:88px;"></div><span class="space-label">Padding vertical de seção — padrão</span><span class="space-token">88px</span></div>
+  <div class="space-row"><div class="space-block" style="width:120px; opacity:0.2;"></div><span class="space-label">Padding vertical — seções escuras de impacto</span><span class="space-token">120px</span></div>
+</section>
+
+<!-- ══════════════════════════════
+     BORDAS E RAIOS
+══════════════════════════════ -->
+<section class="section">
+  <p class="section-eyebrow">Bordas e raios</p>
+
+  <div class="border-row">
+    <div class="border-sample" style="border:0.5px solid var(--borda);"></div>
+    <div><span class="border-label">Borda padrão — divisores, cards neutros</span><span class="border-spec">0.5px solid #E2D9D3</span></div>
+  </div>
+  <div class="border-row">
+    <div class="border-sample" style="border:0.5px solid var(--vinho);"></div>
+    <div><span class="border-label">Borda destaque — card Plus</span><span class="border-spec">0.5px solid #4E1A28</span></div>
+  </div>
+  <div class="border-row">
+    <div class="border-sample" style="border:0.5px solid var(--ouro);"></div>
+    <div><span class="border-label">Borda ouro — contexto Elite, uso raro</span><span class="border-spec">0.5px solid #C9A96E</span></div>
+  </div>
+  <div class="border-row">
+    <div class="border-sample" style="background:var(--vinho); border-radius:100px; height:40px;"></div>
+    <div><span class="border-label">Pílula — todos os botões e tags</span><span class="border-spec">border-radius: 100px</span></div>
+  </div>
+  <div class="border-row">
+    <div class="border-sample" style="border:0.5px solid var(--borda); border-radius:2px;"></div>
+    <div><span class="border-label">Card — quase reto, discreto</span><span class="border-spec">border-radius: 2px</span></div>
+  </div>
+  <div class="border-row">
+    <div class="border-sample" style="border:0.5px solid var(--borda); border-radius:4px;"></div>
+    <div><span class="border-label">Input e formulário</span><span class="border-spec">border-radius: 4px</span></div>
+  </div>
+</section>
+
+<div class="gold-line"></div>
+
+<!-- ══════════════════════════════
+     BOTÕES
+══════════════════════════════ -->
+<section class="section dark">
+  <p class="section-eyebrow">Botões</p>
+
+  <div class="two-col">
+
+    <div>
+      <span class="comp-label" style="color:rgba(234,216,212,0.3);">Sobre fundo vinho escuro</span>
+      <div style="display:flex; flex-direction:column; align-items:flex-start; gap:14px;">
+        <div style="display:flex; gap:12px; flex-wrap:wrap; align-items:center;">
+          <button class="btn-primary">Ver planos</button>
+          <button class="btn-ghost-dark">Diagnóstico gratuito</button>
+        </div>
+        <button class="btn-gold">Solicitar proposta Elite</button>
+        <button class="btn-wpp"><i class="ti ti-brand-whatsapp"></i> Chamar no WhatsApp</button>
+      </div>
+    </div>
+
+    <div>
+      <span class="comp-label" style="color:rgba(234,216,212,0.3);">Sobre fundo claro</span>
+      <div style="display:flex; flex-direction:column; align-items:flex-start; gap:14px;">
+        <div style="display:flex; gap:12px; flex-wrap:wrap; align-items:center;">
+          <button class="btn-primary">Ver planos</button>
+          <button class="btn-ghost-light">Diagnóstico gratuito</button>
+        </div>
+        <button class="btn-gold-filled">Solicitar proposta Elite</button>
+      </div>
+    </div>
+
+  </div>
+
+  <p class="rule-note">
+    Primário usa Vinho em qualquer fundo. Ghost usa borda sutil — claro sobre creme, pale sobre vinho.
+    Ouro aparece apenas no contexto Elite ou ação de máximo valor. Rose nunca é cor de ação.
+  </p>
+</section>
+
+<div class="gold-line"></div>
+
+<!-- ══════════════════════════════
+     COMPONENTES
+══════════════════════════════ -->
+<section class="section">
+  <p class="section-eyebrow">Componentes</p>
+
+  <!-- Cards de plano -->
+  <div style="margin-bottom:72px;">
+    <span class="comp-label">Cards de plano</span>
+    <div class="three-col">
+      <div class="plano-card">
+        <span class="plano-card-tag">Essencial</span>
+        <div class="plano-card-name">Essencial</div>
+        <div class="plano-card-price"><span class="plano-card-cur">R$</span>497</div>
+        <div class="plano-card-per">por mês</div>
+        <div class="plano-card-divider"></div>
+        <button class="btn-plano">Começar</button>
+      </div>
+      <div class="plano-card destaque">
+        <span class="plano-card-tag">Plus · Mais contratado</span>
+        <div class="plano-card-name">Plus</div>
+        <div class="plano-card-price"><span class="plano-card-cur">R$</span>997</div>
+        <div class="plano-card-per">por mês</div>
+        <div class="plano-card-divider"></div>
+        <button class="btn-plano-main">Começar com o Plus</button>
+      </div>
+      <div class="plano-card">
+        <span class="plano-card-tag">Elite</span>
+        <div class="plano-card-name" style="font-size:28px;">Elite</div>
+        <div class="plano-card-price" style="font-size:26px; font-style:italic; padding-top:8px;">Sob consulta</div>
+        <div class="plano-card-per">proposta personalizada</div>
+        <div class="plano-card-divider"></div>
+        <button class="btn-gold" style="width:100%; text-align:center;">Solicitar proposta</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dado + Tags + Resolve -->
+  <div class="two-col" style="margin-bottom:72px;">
+    <div>
+      <span class="comp-label">Dado editorial</span>
+      <div style="padding:48px; border:0.5px solid var(--borda); border-radius:2px; background:var(--creme);">
+        <div class="dado-num">70<sup style="font-size:28px; vertical-align:super;">%</sup></div>
+        <p class="dado-label">das brigas em assembleia não vêm da pauta — vêm do que não foi comunicado</p>
+        <p class="dado-fonte">Pesquisa nacional · SBT News · 188 mil participantes</p>
+      </div>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:24px;">
+      <div>
+        <span class="comp-label">Tags</span>
+        <div style="display:flex; flex-wrap:wrap; gap:8px; padding:28px; border:0.5px solid var(--borda); border-radius:2px;">
+          <span class="tag">Avisos</span>
+          <span class="tag">Cartazes</span>
+          <span class="tag">WhatsApp</span>
+          <span class="tag">Identidade</span>
+          <span class="tag">Convivência</span>
+        </div>
+      </div>
+      <div>
+        <span class="comp-label">Linha "Resolve"</span>
+        <div style="padding:28px; border:0.5px solid var(--borda); border-radius:2px;">
+          <p style="font-size:13px; color:var(--texto-muted); font-weight:300; line-height:1.7;">Séries visuais que incentivam boas práticas de convivência.</p>
+          <div class="resolve-strip">
+            <span class="resolve-label">Resolve</span>
+            <span class="resolve-text">barulho, vagas, áreas comuns — o que não é comunicado, vira briga</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Inputs -->
+  <div>
+    <span class="comp-label">Inputs — fundo vinho noite</span>
+    <div style="background:var(--vinho-noite); border-radius:4px; padding:36px; display:flex; flex-direction:column; gap:12px; max-width:460px;">
+      <input class="input-dark" placeholder="Nome do condomínio" />
+      <input class="input-dark" placeholder="Telefone / WhatsApp" />
+    </div>
+  </div>
+
+</section>
+
+<div class="gold-line"></div>
+
+<!-- ══════════════════════════════
+     RITMO DE CONTRASTE
+══════════════════════════════ -->
+<section class="section warm">
+  <p class="section-eyebrow">Ritmo de contraste — ordem das seções</p>
+  <p style="font-size:13px; color:var(--texto-muted); font-weight:300; line-height:1.75; margin-bottom:44px; max-width:500px;">A alternância entre creme e vinho é o que cria respiração e impacto. Nunca duas seções escuras seguidas sem uma clara entre elas.</p>
+
+  <div class="rhythm-track">
+    <div class="rhythm-row" style="background:#FAF8F5; border-bottom:0.5px solid #E2D9D3;">
+      <span class="rhythm-name" style="color:#1C1510;">Nav + Hero</span>
+      <span class="rhythm-hex">#FAF8F5 — creme</span>
+    </div>
+    <div class="rhythm-row" style="background:#28101A; border-bottom:0.5px solid #3D1828;">
+      <span class="rhythm-name" style="color:#EAD8D4;">Strip marquee</span>
+      <span class="rhythm-hex" style="color:#6B3A48;">#28101A — vinho noite</span>
+    </div>
+    <div class="rhythm-row" style="background:#4E1A28; border-bottom:0.5px solid #3D1428;">
+      <span class="rhythm-name" style="color:#FAF0EC;">Manifesto</span>
+      <span class="rhythm-hex" style="color:#7A4060;">#4E1A28 — vinho</span>
+    </div>
+    <div class="rhythm-row" style="background:#FAF8F5; border-bottom:0.5px solid #E2D9D3;">
+      <span class="rhythm-name" style="color:#1C1510;">Dados + Serviços</span>
+      <span class="rhythm-hex">#FAF8F5 — creme</span>
+    </div>
+    <div class="rhythm-row" style="background:#F2E8DF; border-bottom:0.5px solid #E2D9D3;">
+      <span class="rhythm-name" style="color:#1C1510;">Planos</span>
+      <span class="rhythm-hex">#F2E8DF — bege quente</span>
+    </div>
+    <div class="rhythm-row" style="background:#28101A; border-bottom:0.5px solid #3D1828;">
+      <span class="rhythm-name" style="color:#EAD8D4;">Contato</span>
+      <span class="rhythm-hex" style="color:#6B3A48;">#28101A — vinho noite</span>
+    </div>
+    <div class="rhythm-row" style="background:#4E1A28;">
+      <span class="rhythm-name" style="color:#FAF0EC;">Footer</span>
+      <span class="rhythm-hex" style="color:#7A4060;">#4E1A28 — vinho</span>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

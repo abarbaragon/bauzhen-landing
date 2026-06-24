@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bawzen Ecoville | Comunicação Visual para Condomínios em Curitiba</title>
+  <meta name="description" content="Comunicados, campanhas educacionais e identidade visual para condomínios em Curitiba. Comunicação com consistência e refinamento. Na altura do seu empreendimento." />
+  <link rel="canonical" href="https://bawzen.com.br/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Bawzen Ecoville | Comunicação Visual para Condomínios" />
+  <meta property="og:description" content="Seu condomínio tem alto padrão. A comunicação interna também deveria ter. Comunicação visual para síndicos e administradoras em Curitiba." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:url" content="https://bawzen.com.br/" />
+  <meta property="og:image" content="https://bawzen.com.br/og-image.jpg" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Bawzen Ecoville | Comunicação Visual para Condomínios" />
+  <meta name="twitter:description" content="Seu condomínio tem alto padrão. A comunicação interna também deveria ter." />
+  <meta name="twitter:image" content="https://bawzen.com.br/og-image.jpg" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+
+  <!-- Preload LCP: hero desktop (acima da dobra) -->
+  <link rel="preload" as="image" href="hero-new.jpg" fetchpriority="high" media="(min-width: 641px)" />
+  <!-- Preload LCP: hero mobile -->
+  <link rel="preload" as="image" href="hero2.jpg" fetchpriority="high" media="(max-width: 640px)" />
+
+  <!-- theme-color para mobile browsers -->
+  <meta name="theme-color" content="#0D0D0D" />
+
+  <!-- Fontes: preconnect + carregamento não-bloqueante -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- Pesos utilizados: Cormorant 300 + italic 300 | DM Sans 300, 400, 500 -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;1,300&family=DM+Sans:wght@300;400;500&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;1,300&family=DM+Sans:wght@300;400;500&display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;1,300&family=DM+Sans:wght@300;400;500&display=swap" /></noscript>
+
+  <style>
+    /* ===========================
+       RESET & BASE
+    =========================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: #0D0D0D;
+      color: #FAF8F5;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Skip link */
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: 0;
+      background: #C9A96E;
+      color: #000;
+      padding: 8px 16px;
+      font-size: 13px;
+      font-weight: 700;
+      z-index: 9999;
+      text-decoration: none;
+    }
+    .skip-link:focus { top: 0; }
+
+    /* Visually hidden (para labels acessíveis) */
+    .sr-only {
+      position: absolute;
+      width: 1px; height: 1px;
+      padding: 0; margin: -1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    /* Focus visible global */
+    :focus-visible {
+      outline: 2px solid #C9A96E;
+      outline-offset: 3px;
+    }
+
+    /* ===========================
+       NAV
+    =========================== */
+    .top-line {
+      position: fixed; top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(201,169,110,0.55) 25%, rgba(201,169,110,0.9) 50%, rgba(201,169,110,0.55) 75%, transparent);
+      z-index: 200; pointer-events: none;
+    }
+    nav {
+      background: rgba(13,13,13,0.96);
+      position: sticky; top: 0; z-index: 100;
+      border-bottom: 0.5px solid #1A1A1A;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      transition: background 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+    }
+    nav::after {
+      content: ''; position: absolute; left: 50%; bottom: -1px; transform: translateX(-50%);
+      width: min(520px, 70vw); height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(201,169,110,0.45), transparent);
+      opacity: 0; transition: opacity 0.35s ease; pointer-events: none;
+    }
+    nav.scrolled {
+      background: rgba(13,13,13,0.58);
+      border-bottom-color: rgba(201,169,110,0.16);
+      backdrop-filter: blur(22px) saturate(135%);
+      -webkit-backdrop-filter: blur(22px) saturate(135%);
+      box-shadow: 0 18px 48px rgba(0,0,0,0.18);
+    }
+    nav.scrolled::after { opacity: 1; }
+    .nav-inner {
+      max-width: 1100px; margin: 0 auto; padding: 22px 52px;
+      display: flex; justify-content: space-between; align-items: center;
+      transition: padding 0.35s ease;
+    }
+    nav.scrolled .nav-inner { padding-top: 16px; padding-bottom: 16px; }
+    .logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px; font-weight: 300; font-style: italic;
+      letter-spacing: 0.08em; color: #FAF8F5;
+      text-decoration: none; display: flex; align-items: center;
+    }
+    .logo em { font-style: normal; color: #C9A96E; }
+    .logo-mark { display: inline-block; vertical-align: middle; margin-right: 9px; flex-shrink: 0; }
+    .nav-links { display: flex; gap: 36px; align-items: center; }
+    .nav-links a {
+      font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase;
+      color: #EAD8D4; opacity: 0.55; text-decoration: none; font-weight: 400;
+    }
+    nav.scrolled .nav-links a:not(.btn-nav) { opacity: 0.72; }
+    .btn-nav {
+      font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      background: #C9A96E; color: #000; opacity: 1;
+      border: none; padding: 10px 22px; border-radius: 100px;
+      cursor: pointer; text-decoration: none;
+      transition: background 0.35s;
+    }
+    .nav-links .btn-nav { color: #000; opacity: 1; }
+    .btn-nav:hover { background: #D4AE78; }
+
+    /* ===========================
+       HERO
+    =========================== */
+    .hero-wrap { position: relative; overflow: hidden; min-height: 680px; }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background-image: url('hero-new.jpg');
+      background-size: cover;
+      background-position: center bottom;
+      z-index: 0;
+    }
+    .hero-bg::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(90deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.55) 58%, rgba(0,0,0,0.12) 100%);
+    }
+    .hero {
+      padding: 100px 52px 88px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: end;
+      min-height: 680px; max-width: 1100px; margin: 0 auto;
+      position: relative; z-index: 1;
+    }
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(38px, 4.6vw, 60px); font-weight: 300;
+      line-height: 1.1; letter-spacing: -0.01em; color: #FAF8F5;
+      animation: heroFade 1.4s ease 0.15s both;
+    }
+    .hero h1 em { font-style: italic; color: #C9A96E; }
+    .hero-desc {
+      font-size: 15px; color: #EAD8D4; font-weight: 300;
+      line-height: 1.75; margin-top: 32px; margin-bottom: 36px;
+      max-width: 360px; opacity: 0.8;
+      animation: heroFade 1.4s ease 0.5s both;
+    }
+    .hero-actions {
+      display: flex; gap: 14px; align-items: center; flex-wrap: wrap;
+      animation: heroFade 1.4s ease 0.82s both;
+    }
+    @keyframes heroFade {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .btn-vinho {
+      font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      background: #C9A96E; color: #000; border: none;
+      padding: 13px 28px; border-radius: 100px; cursor: pointer;
+      text-decoration: none; display: inline-block;
+      transition: background 0.35s, box-shadow 0.35s;
+    }
+    .btn-vinho:hover { background: #D4AE78; box-shadow: 0 0 18px rgba(201,169,110,0.28), 0 0 40px rgba(201,169,110,0.1); }
+    .btn-ghost {
+      font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 400;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      background: transparent; color: #B5A9A4; border: 0.5px solid #D4C0BA;
+      padding: 13px 24px; border-radius: 100px; cursor: pointer;
+      text-decoration: none; display: inline-block;
+      transition: border-color 0.35s, color 0.35s, box-shadow 0.35s;
+    }
+    .btn-ghost:hover { border-color: #C9A96E; color: #C9A96E; box-shadow: 0 0 12px rgba(201,169,110,0.1); }
+
+    /* ===========================
+       MANIFESTO
+    =========================== */
+    .ma-a { background: #0D0D0D; padding: 128px 52px; border-bottom: 0.5px solid #1A1A1A; }
+    .ma-a-inner { max-width: 1100px; margin: 0 auto; text-align: center; }
+    .ma-a-eyebrow { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: #C9A96E; font-weight: 500; opacity: 0.75; margin-bottom: 48px; }
+    .ma-a-quote { font-family: 'Cormorant Garamond', serif; font-size: clamp(36px, 5vw, 68px); font-weight: 300; font-style: italic; color: #C9A96E; line-height: 1.15; margin-bottom: 40px; max-width: 860px; margin-left: auto; margin-right: auto; }
+    .ma-a-divider { width: 40px; height: 0.5px; background: #C9A96E; opacity: 0.4; margin: 0 auto 40px; }
+    .ma-a-body { max-width: 560px; margin: 0 auto; }
+    .ma-a-p { font-family: 'Cormorant Garamond', serif; font-size: clamp(17px, 2vw, 22px); font-weight: 300; color: #FAF8F5; line-height: 1.7; opacity: 0.75; }
+    .ma-a-p em { font-style: italic; color: #DFC28E; opacity: 1; }
+
+    /* ===========================
+       DADOS
+    =========================== */
+    .dados-a { background: #0D0D0D; border-bottom: 0.5px solid #1A1A1A; }
+    .dados-a-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); }
+    .dado-a { padding: 88px 52px 72px; text-align: center; border-right: 0.5px solid #1A1A1A; }
+    .dado-a:last-child { border-right: none; }
+    .dado-a-num { font-family: 'Cormorant Garamond', serif; font-size: 90px; font-weight: 300; font-style: italic; color: #C9A96E; line-height: 0.85; letter-spacing: -0.03em; margin-bottom: 28px; }
+    .dado-a-num sup { font-size: 34px; vertical-align: super; }
+    .dado-a-label { font-size: 13px; color: #FAF8F5; font-weight: 300; line-height: 1.7; margin-bottom: 16px; max-width: 220px; margin-left: auto; margin-right: auto; }
+    .dado-a-fonte { font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; color: #C9A96E; opacity: 0.4; }
+
+    /* ===========================
+       SERVIÇOS
+    =========================== */
+    .sv-wrap { background: #0D0D0D; border-bottom: 0.5px solid #1A1A1A; }
+    .sv-header { max-width: 1100px; margin: 0 auto; padding: 88px 52px 32px; display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 0.5px solid #1A1A1A; }
+    .sv-header h2 { font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 300; font-style: italic; color: #FAF8F5; }
+    .sv-header h2 em { color: #C9A96E; }
+    .sv-header-sub { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #C9A96E; opacity: 0.65; }
+    .sv-list { max-width: 1100px; margin: 0 auto; padding: 0 52px 96px; }
+    .sv-row { display: grid; grid-template-columns: 56px 1fr 1fr; gap: 40px; align-items: start; padding: 36px 0; border-bottom: 0.5px solid #1A1A1A; }
+    .sv-num { font-family: 'Cormorant Garamond', serif; font-size: 42px; font-weight: 300; font-style: italic; color: #C9A96E; opacity: 0.18; line-height: 1; padding-top: 2px; }
+    .sv-left { display: flex; flex-direction: column; gap: 8px; }
+    .sv-tag { display: inline-block; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: #C9A96E; opacity: 0.7; border: 0.5px solid rgba(201,169,110,0.3); padding: 4px 10px; align-self: flex-start; }
+    .sv-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(20px, 2vw, 24px); font-weight: 300; color: #FAF8F5; line-height: 1.25; }
+    .sv-desc { font-size: 14px; color: #FAF8F5; opacity: 0.42; font-weight: 300; line-height: 1.75; }
+
+    /* ===========================
+       RESULTADOS
+    =========================== */
+    .resultados-v2 {
+      min-height: 100vh; background: #0A0A0A;
+      border-bottom: 0.5px solid #1A1A1A;
+      display: flex; align-items: center; overflow: hidden; position: relative;
+    }
+    .resultados-v2-inner {
+      width: 100%; max-width: 1100px; margin: 0 auto; padding: 128px 52px;
+      display: grid; grid-template-columns: 0.92fr 1.08fr; gap: 72px; align-items: center;
+      position: relative; z-index: 1;
+    }
+    .resultados-v2-copy { max-width: 480px; }
+    .resultados-v2 h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(42px, 5vw, 76px); font-weight: 300; color: #FAF8F5; line-height: 1.02; margin-bottom: 32px; }
+    .resultados-v2 h2 em { color: #C9A96E; font-style: italic; }
+    .resultados-v2-text { font-size: 15px; line-height: 1.8; color: #FAF8F5; opacity: 0.52; font-weight: 300; max-width: 420px; }
+    .resultados-v2-panel { border-left: 0.5px solid rgba(201,169,110,0.22); padding-left: 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .resultado-v2-item {
+      min-height: 132px; padding: 24px 22px;
+      background: #111111; border: 0.5px solid #1E1E1E;
+      display: flex; flex-direction: column; justify-content: space-between;
+    }
+    .resultado-v2-head { display: flex; align-items: center; gap: 16px; margin-bottom: 22px; }
+    .resultado-v2-icon { width: 34px; height: 34px; color: #C9A96E; opacity: 0.7; flex-shrink: 0; }
+    .resultado-v2-icon path, .resultado-v2-icon rect, .resultado-v2-icon circle { stroke: currentColor; }
+    .resultado-v2-item p { font-size: 13px; color: #FAF8F5; line-height: 1.6; opacity: 0.65; font-weight: 300; }
+    .resultado-v2-item.destaque { grid-column: span 2; min-height: 160px; background: #141414; border-color: rgba(201,169,110,0.14); }
+    .resultado-v2-item.destaque p { font-family: 'Cormorant Garamond', serif; font-size: clamp(22px, 3vw, 34px); line-height: 1.25; opacity: 0.88; color: #C9A96E; }
+
+    /* ===========================
+       PLANOS
+    =========================== */
+    .planos-wrap {
+      background: #0D0D0D;
+      border-top: 0.5px solid #1A1A1A; border-bottom: 0.5px solid #1A1A1A;
+      position: relative; overflow: hidden;
+    }
+    .planos { padding: 128px 52px; max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
+    .planos-header { text-align: center; margin-bottom: 64px; }
+    .planos-header .label { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #C9A96E; font-weight: 400; margin-bottom: 20px; opacity: 0.7; }
+    .planos-header h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(32px, 4vw, 48px); font-weight: 300; color: #FAF8F5; line-height: 1.1; }
+    .planos-header h2 em { font-style: italic; color: #C9A96E; }
+    .planos-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; align-items: stretch; }
+    .plano { background: #0E0E0E; border: 0.5px solid #222222; border-radius: 0; padding: 44px 36px; display: flex; flex-direction: column; transition: opacity 0.65s ease, transform 0.65s ease; }
+    .plano:hover { border-color: #333333; }
+    .plano.anim-hidden { opacity: 0 !important; transform: translateY(40px) !important; }
+    .plano.destaque { background: #141414; border: none; border-radius: 0; padding: 44px 36px; position: relative; }
+    .plano.destaque::before {
+      content: ''; position: absolute; inset: 0; border-radius: 0;
+      background: linear-gradient(160deg, rgba(201,169,110,0.35) 0%, rgba(201,169,110,0.08) 50%, rgba(201,169,110,0) 100%);
+      pointer-events: none;
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor; mask-composite: exclude; padding: 1px;
+    }
+    .plano-tag { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 400; color: #444444; margin-bottom: 28px; display: block; }
+    .plano.destaque .plano-tag { color: #C9A96E; opacity: 0.6; }
+    .plano-name { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 300; font-style: italic; color: #FAF8F5; margin-bottom: 10px; }
+    .plano-desc { font-size: 13px; color: #555555; font-weight: 300; line-height: 1.65; margin-bottom: 32px; min-height: 52px; }
+    .plano.destaque .plano-desc { color: #EAD8D4; opacity: 0.55; }
+    .plano-price { margin-bottom: 28px; padding-bottom: 28px; border-bottom: 0.5px solid #1E1E1E; }
+    .plano.destaque .plano-price { border-bottom-color: rgba(201,169,110,0.15); }
+    .plano-price .val { font-family: 'Cormorant Garamond', serif; font-size: 48px; font-weight: 300; color: #AAAAAA; line-height: 1; }
+    .plano.destaque .plano-price .val { color: #C9A96E; text-shadow: 0 0 40px rgba(201,169,110,0.3); }
+    .plano-price .cur { font-size: 16px; font-weight: 300; vertical-align: top; margin-top: 10px; display: inline-block; color: #444444; font-family: 'Cormorant Garamond', serif; }
+    .plano.destaque .plano-price .cur { color: #C9A96E; opacity: 0.6; }
+    .plano-price .per { display: block; font-size: 11px; color: #444444; font-weight: 300; margin-top: 6px; letter-spacing: 0.06em; }
+    .plano.destaque .plano-price .per { color: #EAD8D4; opacity: 0.35; }
+    .plano-price.consult .val { font-size: 24px; font-style: italic; }
+    .features { list-style: none; margin-bottom: 36px; }
+    .features li { font-size: 13px; color: #555555; padding: 9px 0; border-bottom: 0.5px solid #191919; display: flex; gap: 12px; align-items: flex-start; font-weight: 300; line-height: 1.5; }
+    .plano.destaque .features li { color: #EAD8D4; border-bottom-color: rgba(201,169,110,0.08); opacity: 0.75; }
+    .features li:last-child { border-bottom: none; }
+    .features li::before { content: ''; flex-shrink: 0; width: 3px; height: 3px; border-radius: 50%; background: #333333; margin-top: 8px; }
+    .plano.destaque .features li::before { background: #C9A96E; opacity: 0.4; }
+    .features li.new::before { background: #C9A96E; opacity: 0.8; }
+    .plano.destaque .features li.new::before { background: #C9A96E; opacity: 1; }
+    .plano .btn-plano, .plano .btn-gold { margin-top: auto; }
+    .btn-plano {
+      width: 100%; padding: 14px; font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 500;
+      letter-spacing: 0.12em; text-transform: uppercase; border-radius: 100px; cursor: pointer;
+      background: transparent; color: #444444; border: 0.5px solid #1E1E1E;
+      transition: border-color 0.35s, color 0.35s, background 0.35s, box-shadow 0.35s;
+    }
+    .btn-plano:hover { border-color: #C9A96E; color: #0D0D0D; background: #C9A96E; }
+    .btn-plano.main { background: #C9A96E; color: #000; border-color: transparent; font-weight: 700; }
+    .btn-plano.main:hover { background: #D4AE78; box-shadow: 0 0 18px rgba(201,169,110,0.28), 0 0 40px rgba(201,169,110,0.1); }
+    .btn-gold {
+      background: transparent; color: #C9A96E; border: 0.5px solid #C9A96E;
+      padding: 13px; border-radius: 100px; font-family: 'DM Sans', sans-serif;
+      font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+      cursor: pointer; width: 100%;
+      transition: background 0.35s, color 0.35s, box-shadow 0.35s;
+    }
+    .btn-gold:hover { background: #C9A96E; color: #000; box-shadow: 0 0 18px rgba(201,169,110,0.28), 0 0 40px rgba(201,169,110,0.1); }
+
+    /* ===========================
+       DEPOIMENTO
+    =========================== */
+    .depo-wrap { background: #0A0A0A; border-bottom: 0.5px solid #1A1A1A; }
+    .depo { padding: 128px 52px; max-width: 860px; margin: 0 auto; text-align: center; }
+    .depo-header { margin-bottom: 56px; }
+    .depo-label { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: #C9A96E; opacity: 0.7; margin-bottom: 18px; }
+    .depo-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(30px, 4vw, 48px); font-weight: 300; color: #FAF8F5; line-height: 1.12; }
+    .depo-title em { color: #C9A96E; font-style: italic; }
+    .depo-slider { position: relative; }
+    .depo-slide { display: none; }
+    .depo-slide.active { display: block; animation: depoFade 0.45s ease; }
+    @keyframes depoFade {
+      from { opacity: 0; transform: translateY(8px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .depo-quote { font-family: 'Cormorant Garamond', serif; font-size: clamp(20px, 2.8vw, 32px); font-weight: 300; font-style: italic; color: #FAF8F5; line-height: 1.6; margin-bottom: 40px; }
+    .depo-line { width: 40px; height: 0.5px; background: #C9A96E; margin: 0 auto 24px; opacity: 0.5; }
+    .depo-name { font-size: 13px; color: #FAF8F5; font-weight: 400; letter-spacing: 0.06em; margin-bottom: 4px; }
+    .depo-condo { font-size: 11px; color: #C9A96E; opacity: 0.5; letter-spacing: 0.1em; text-transform: uppercase; }
+    .depo-nav { margin-top: 40px; display: flex; align-items: center; justify-content: center; gap: 18px; }
+    .depo-arrow {
+      width: 38px; height: 38px; border-radius: 50%;
+      border: 0.5px solid rgba(201,169,110,0.3); background: transparent;
+      color: #C9A96E; display: inline-flex; align-items: center; justify-content: center;
+      cursor: pointer; opacity: 0.72;
+      transition: opacity 0.2s, border-color 0.2s;
+    }
+    .depo-arrow:hover { opacity: 1; border-color: rgba(201,169,110,0.6); }
+    .depo-arrow svg { width: 16px; height: 16px; }
+    .depo-dots { display: flex; gap: 8px; align-items: center; }
+    .depo-dot { width: 6px; height: 6px; border-radius: 50%; background: #C9A96E; opacity: 0.25; cursor: pointer; transition: opacity 0.25s; border: none; padding: 0; }
+    .depo-dot.active { opacity: 0.85; }
+
+    /* ===========================
+       IMPACTO
+    =========================== */
+    .impacto-wrap { position: relative; min-height: 720px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+    .impacto-bg { position: absolute; inset: 0; background: url('impacto-bg.png') center/cover no-repeat; }
+    .impacto-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(6,4,3,0.88) 0%, rgba(6,4,3,0.78) 100%); }
+    .impacto-inner { position: relative; z-index: 1; text-align: center; max-width: 1040px; padding: 0 52px; }
+    .impacto-eyebrow { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: #C9A96E; font-weight: 500; opacity: 0.75; margin-bottom: 28px; }
+    .impacto-titulo { font-family: 'Cormorant Garamond', serif; font-size: clamp(32px, 4.3vw, 60px); font-weight: 300; color: #FAF8F5; line-height: 1.16; margin-bottom: 36px; }
+    .impacto-titulo em { font-style: italic; color: #C9A96E; }
+    .impacto-btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: #C9A96E; color: #000; border: none;
+      padding: 14px 32px; border-radius: 100px;
+      font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      cursor: pointer; text-decoration: none;
+      transition: background 0.35s, box-shadow 0.35s;
+    }
+    .impacto-btn:hover { background: #D4AE78; box-shadow: 0 4px 24px rgba(201,169,110,0.4), 0 0 48px rgba(201,169,110,0.14); }
+
+    /* ===========================
+       CONTATO
+    =========================== */
+    .ct-c-wrap { background: #0D0D0D; }
+    .ct-c-top { max-width: 960px; margin: 0 auto; padding: 128px 52px 56px; text-align: center; }
+    .ct-c-eyebrow { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: #C9A96E; font-weight: 500; opacity: 0.75; margin-bottom: 24px; }
+    .ct-c-top h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(32px, 4vw, 52px); font-weight: 300; color: #FAF8F5; line-height: 1.15; margin-bottom: 16px; }
+    .ct-c-top h2 em { font-style: italic; color: #C9A96E; }
+    .ct-c-top p { font-size: 14px; color: #FAF8F5; opacity: 0.4; font-weight: 300; line-height: 1.75; max-width: 560px; margin: 0 auto; }
+    .ct-c-cards { max-width: 960px; margin: 0 auto; padding: 0 52px 40px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .ct-c-card { background: #111111; border: 0.5px solid #1E1E1E; padding: 28px 24px; }
+    .ct-c-card-label { font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: #C9A96E; opacity: 0.7; margin-bottom: 10px; }
+    .ct-c-card-val { font-family: 'DM Sans', sans-serif; font-size: 15px; color: #FAF8F5; font-weight: 400; }
+    .ct-c-card-val a { color: #FAF8F5; text-decoration: none; }
+    .ct-c-card-val a:hover { color: #C9A96E; }
+    .ct-c-form { max-width: 960px; margin: 0 auto; padding: 0 52px 96px; }
+    .form-lux { display: flex; flex-direction: column; gap: 0; }
+    .form-lux input, .form-lux textarea {
+      width: 100%; background: transparent; border: none; border-bottom: 0.5px solid #2A2A2A;
+      padding: 16px 0; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 300;
+      color: #FAF8F5; outline: none; transition: border-color 0.2s;
+    }
+    .form-lux input::placeholder, .form-lux textarea::placeholder { color: rgba(255,255,255,0.3); }
+    .form-lux input:focus, .form-lux textarea:focus { border-bottom-color: rgba(201,169,110,0.33); }
+    .form-lux textarea { resize: none; height: 80px; margin-top: 8px; }
+    .custom-select { position: relative; width: 100%; }
+    .custom-select-trigger {
+      width: 100%; background: transparent; border: none; border-bottom: 0.5px solid #2A2A2A;
+      padding: 16px 0; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 300;
+      color: rgba(255,255,255,0.3); cursor: pointer; text-align: left;
+      display: flex; justify-content: space-between; align-items: center;
+      outline: none; transition: border-color 0.2s;
+    }
+    .custom-select-trigger.selected { color: #FAF8F5; }
+    .custom-select-trigger:focus, .custom-select.open .custom-select-trigger { border-bottom-color: rgba(201,169,110,0.33); color: #FAF8F5; }
+    .custom-select-arrow { width: 10px; height: 10px; border-right: 0.8px solid #C9A96E; border-bottom: 0.8px solid #C9A96E; transform: rotate(45deg); margin-bottom: 4px; transition: transform 0.2s; flex-shrink: 0; opacity: 0.5; }
+    .custom-select.open .custom-select-arrow { transform: rotate(-135deg); margin-bottom: -4px; }
+    .custom-select-dropdown { position: absolute; top: calc(100% + 2px); left: 0; right: 0; z-index: 100; background: #111111; border: 0.5px solid #2A2A2A; display: none; flex-direction: column; }
+    .custom-select.open .custom-select-dropdown { display: flex; }
+    .custom-select-option { padding: 14px 16px; font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 300; color: #FAF8F5; opacity: 0.5; cursor: pointer; border-bottom: 0.5px solid #1E1E1E; transition: opacity 0.15s, background 0.15s; }
+    .custom-select-option:last-child { border-bottom: none; }
+    .custom-select-option:hover { opacity: 1; background: #1A1A1A; }
+    .custom-select-option.active { opacity: 1; color: #C9A96E; }
+    .btn-form-lux {
+      margin-top: 36px; width: 100%; padding: 15px;
+      font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase; border-radius: 100px;
+      cursor: pointer; background: #C9A96E; color: #000; border: none;
+      transition: background 0.35s, box-shadow 0.35s;
+    }
+    .btn-form-lux:hover { background: #D4AE78; box-shadow: 0 4px 24px rgba(201,169,110,0.4), 0 0 48px rgba(201,169,110,0.14); }
+
+    /* ===========================
+       FOOTER
+    =========================== */
+    footer {
+      background: #0D0D0D; border-top: 0.5px solid #1A1A1A;
+      padding: 40px 52px;
+      display: flex; flex-direction: column; justify-content: center; align-items: center;
+      gap: 14px; text-align: center;
+    }
+    .footer-logo { display: flex; align-items: center; justify-content: center; gap: 10px; font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 300; color: #FAF8F5; letter-spacing: 0.06em; }
+    .footer-logo span { display: flex; align-items: center; justify-content: center; }
+    .footer-logo em { font-style: italic; color: #C9A96E; margin-right: 4px; }
+    footer p { font-size: 12px; color: #FAF8F5; font-weight: 300; opacity: 0.25; }
+
+    /* ===========================
+       RESPONSIVO — tablet
+    =========================== */
+    @media (max-width: 980px) {
+      .nav-inner { padding: 18px 32px; }
+      .nav-links { gap: 20px; }
+
+      .hero-wrap, .hero { min-height: 600px; }
+      .hero { padding: 80px 36px 72px; }
+
+      .dados-a-inner { grid-template-columns: 1fr; }
+      .dado-a { border-right: none; border-bottom: 0.5px solid #1A1A1A; padding: 52px 36px; }
+      .dado-a:last-child { border-bottom: none; }
+
+      .sv-header { padding: 72px 36px 28px; flex-wrap: wrap; gap: 10px; }
+      .sv-list { padding: 0 36px 80px; }
+      .sv-row { grid-template-columns: 48px 1fr; gap: 24px; }
+      .sv-desc { display: none; }
+
+      .resultados-v2-inner { grid-template-columns: 1fr; gap: 48px; padding: 80px 36px; }
+      .resultados-v2-copy { max-width: 100%; }
+      .resultados-v2-panel { padding-left: 0; border-left: none; }
+
+      .planos { padding: 80px 36px; }
+      .planos-grid { grid-template-columns: 1fr; max-width: 520px; margin: 0 auto; }
+      .plano-desc { min-height: 0; }
+
+      .depo { padding: 80px 36px; }
+
+      .impacto-inner { padding: 0 36px; }
+
+      .ct-c-top { padding: 80px 36px 48px; }
+      .ct-c-cards { padding: 0 36px 36px; grid-template-columns: 1fr; max-width: 720px; }
+      .ct-c-form { padding: 0 36px 80px; max-width: 720px; margin: 0 auto; }
+
+      footer { padding: 36px 36px; }
+    }
+
+    /* ===========================
+       RESPONSIVO — mobile
+    =========================== */
+    @media (max-width: 640px) {
+      /* NAV */
+      .nav-inner { padding: 14px 20px; }
+      nav.scrolled .nav-inner { padding-top: 11px; padding-bottom: 11px; }
+      .logo { font-size: 17px; letter-spacing: 0.03em; }
+      .logo-mark { width: 20px; height: 20px; margin-right: 7px; }
+      .nav-links { gap: 0; }
+      .nav-links a:not(.btn-nav) { display: none; }
+      .btn-nav { font-size: 9px; padding: 9px 14px; letter-spacing: 0.07em; }
+
+      /* HERO */
+      .hero-wrap, .hero { min-height: 100svh; }
+      .hero-bg {
+        background-image: url('hero2.jpg');
+        background-position: center center;
+      }
+      .hero-bg::after { background: linear-gradient(180deg, rgba(6,4,3,0.45) 0%, rgba(6,4,3,0.55) 50%, rgba(6,4,3,0.88) 100%); }
+      .hero { grid-template-columns: 1fr; padding: 48px 24px 52px; align-items: flex-end; }
+      .hero-spacer { display: none; }
+      .hero h1 { font-size: clamp(34px, 10vw, 44px); }
+      .hero-desc { font-size: 14px; line-height: 1.65; margin-top: 20px; margin-bottom: 28px; max-width: 100%; opacity: 0.85; }
+      .hero-actions { flex-direction: column; align-items: stretch; gap: 10px; }
+      .btn-vinho, .btn-ghost { width: 100%; text-align: center; padding: 15px 20px; font-size: 11px; }
+
+      /* MANIFESTO */
+      .ma-a { padding: 72px 24px; }
+      .ma-a-eyebrow { margin-bottom: 28px; font-size: 10px; }
+      .ma-a-quote { font-size: clamp(28px, 9.5vw, 40px); margin-bottom: 28px; }
+      .ma-a-divider { margin-bottom: 28px; }
+      .ma-a-p { font-size: clamp(15px, 4.2vw, 18px); }
+
+      /* DADOS */
+      .dado-a { padding: 48px 24px; }
+      .dado-a-num { font-size: 80px; }
+      .dado-a-num sup { font-size: 30px; }
+      .dado-a-label { font-size: 12px; }
+
+      /* SERVIÇOS */
+      .sv-header { padding: 64px 24px 24px; flex-direction: column; align-items: flex-start; gap: 8px; }
+      .sv-header h2 { font-size: 26px; }
+      .sv-list { padding: 0 24px 64px; }
+      .sv-row { grid-template-columns: 32px 1fr; gap: 14px; align-items: start; padding: 28px 0; }
+      .sv-num { font-size: 28px; padding-top: 4px; }
+      .sv-tag { font-size: 9px; }
+      .sv-title { font-size: 18px; }
+      .sv-desc { display: block; grid-column: 1 / -1; margin-top: 4px; font-size: 13px; line-height: 1.65; }
+
+      /* RESULTADOS */
+      .resultados-v2 { min-height: auto; }
+      .resultados-v2-inner { padding: 72px 24px; gap: 40px; }
+      .resultados-v2 h2 { font-size: clamp(32px, 10vw, 46px); margin-bottom: 20px; }
+      .resultados-v2-text { font-size: 13px; }
+      .resultados-v2-panel { grid-template-columns: 1fr; gap: 10px; }
+      .resultado-v2-item { grid-column: auto; min-height: 110px; padding: 20px 18px; }
+      .resultado-v2-item.destaque { grid-column: auto; min-height: 130px; }
+      .resultado-v2-item.destaque p { font-size: clamp(18px, 5.5vw, 24px); }
+      .resultado-v2-icon { width: 28px; height: 28px; }
+
+      /* PLANOS */
+      .planos { padding: 72px 20px; }
+      .planos-header { margin-bottom: 40px; }
+      .planos-header h2 { font-size: 26px; }
+      .planos-grid { grid-template-columns: 1fr; gap: 14px; max-width: none; }
+      .plano { padding: 32px 22px; }
+      .plano-name { font-size: 26px; }
+      .plano-desc { font-size: 12px; min-height: 0; }
+      .plano-price .val { font-size: 40px; }
+      .features li { font-size: 12px; padding: 8px 0; }
+
+      /* DEPOIMENTO */
+      .depo { padding: 72px 24px; }
+      .depo-header { margin-bottom: 36px; }
+      .depo-quote { font-size: clamp(18px, 5.5vw, 26px); margin-bottom: 28px; line-height: 1.5; }
+      .depo-nav { margin-top: 28px; }
+
+      /* IMPACTO */
+      .impacto-wrap { min-height: 580px; }
+      .impacto-inner { padding: 0 24px; }
+      .impacto-titulo { font-size: clamp(28px, 8.5vw, 40px); margin-bottom: 28px; }
+      .impacto-btn { width: 100%; justify-content: center; padding: 15px 20px; }
+
+      /* CONTATO */
+      .ct-c-top { padding: 72px 24px 36px; }
+      .ct-c-top h2 { font-size: clamp(26px, 8vw, 36px); }
+      .ct-c-cards { padding: 0 24px 32px; grid-template-columns: 1fr; }
+      .ct-c-card { padding: 20px 18px; }
+      .ct-c-form { padding: 0 24px 72px; }
+      .form-lux input, .form-lux textarea, .custom-select-trigger { font-size: 14px; padding: 14px 0; }
+
+      /* FOOTER */
+      footer { padding: 32px 24px; }
+      .footer-logo { font-size: 18px; }
+    }
+  </style>
+</head>
+<body>
+
+  <a href="#main" class="skip-link">Pular para o conteúdo principal</a>
+  <div class="top-line" aria-hidden="true"></div>
+
+  <nav aria-label="Navegação principal">
+    <div class="nav-inner">
+      <a href="/" class="logo" aria-label="Bawzen Ecoville — página inicial">
+        <svg class="logo-mark" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" width="24" height="24" aria-hidden="true">
+          <circle cx="14" cy="14" r="13" stroke="#C9A96E" stroke-width="0.7"/>
+          <text x="14" y="19.5" text-anchor="middle" fill="#C9A96E" font-family="Cormorant Garamond, serif" font-size="14" font-style="italic" font-weight="300">B</text>
+        </svg>
+        <em>Bawzen</em>&nbsp;Ecoville
+      </a>
+      <div class="nav-links">
+        <a href="#servicos">Serviços</a>
+        <a href="#planos">Planos</a>
+        <a href="#contato">Contato</a>
+        <a href="#contato" class="btn-nav">Solicitar proposta</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero-wrap">
+    <div class="hero-bg" role="img" aria-label="Foto de um mordomo com luva branca segurando um objeto dourado sobre mármore escuro"></div>
+    <div class="hero">
+      <div>
+        <h1>O seu condomínio merece uma<br>comunicação à <em>altura do que entrega.</em></h1>
+        <p class="hero-desc">Quando a comunicação falha, o morador questiona a gestão. Quando ela funciona, o patrimônio se valoriza e a convivência melhora.</p>
+        <div class="hero-actions">
+          <a href="#planos" class="btn-vinho">Ver planos</a>
+          <a href="#contato" class="btn-ghost">Solicitar diagnóstico gratuito</a>
+        </div>
+      </div>
+      <div class="hero-spacer" aria-hidden="true"></div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <section class="ma-a" aria-label="Por que importa">
+      <div class="ma-a-inner">
+        <p class="ma-a-eyebrow" aria-hidden="true">Por que importa</p>
+        <p class="ma-a-quote">Uma boa comunicação é, antes de tudo, proteção patrimonial.</p>
+        <div class="ma-a-divider" aria-hidden="true"></div>
+        <div class="ma-a-body">
+          <p class="ma-a-p">Um condomínio constrói uma <em>experiência de vida</em>, e a comunicação interna faz parte dela. Cada comunicado, cada campanha, cada detalhe visual diz ao morador: <em>você está no lugar certo.</em></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="dados-a" aria-label="Dados sobre comunicação condominial">
+      <div class="dados-a-inner">
+        <div class="dado-a">
+          <div class="dado-a-num" aria-label="62 por cento">62<sup aria-hidden="true">%</sup></div>
+          <p class="dado-a-label">avaliam a gestão pela comunicação, não pelas obras</p>
+          <p class="dado-a-fonte">SíndicoNet · pesquisa de satisfação condominial</p>
+        </div>
+        <div class="dado-a">
+          <div class="dado-a-num" aria-label="70 por cento">70<sup aria-hidden="true">%</sup></div>
+          <p class="dado-a-label">das insatisfações em assembleia vêm do que não foi comunicado, não da pauta</p>
+          <p class="dado-a-fonte">188 mil entrevistados</p>
+        </div>
+        <div class="dado-a">
+          <div class="dado-a-num" aria-label="90 por cento">90<sup aria-hidden="true">%</sup></div>
+          <p class="dado-a-label">síndicos apontam falhas na comunicação como origem dos principais problemas de gestão</p>
+          <p class="dado-a-fonte">Censo SíndicoNet · 5.000 entrevistados</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="sv-wrap" id="servicos" aria-label="Serviços">
+      <div class="sv-header">
+        <h2>O que a <em>Bawzen</em> oferece</h2>
+        <span class="sv-header-sub" aria-hidden="true">Três pilares de atuação</span>
+      </div>
+      <div class="sv-list">
+        <div class="sv-row">
+          <div class="sv-num" aria-hidden="true">01</div>
+          <div class="sv-left">
+            <span class="sv-tag">Comunicação interna</span>
+            <h3 class="sv-title">Avisos que informam e protegem a gestão</h3>
+          </div>
+          <p class="sv-desc">Comunicados e avisos para áreas comuns com identidade visual consistente. Prontos para digital e impressão.</p>
+        </div>
+        <div class="sv-row">
+          <div class="sv-num" aria-hidden="true">02</div>
+          <div class="sv-left">
+            <span class="sv-tag">Campanhas educacionais</span>
+            <h3 class="sv-title">O comportamento muda sem confronto</h3>
+          </div>
+          <p class="sv-desc">Séries visuais que ensinam boas práticas com leveza. O síndico para de repetir as mesmas regras toda semana.</p>
+        </div>
+        <div class="sv-row">
+          <div class="sv-num" aria-hidden="true">03</div>
+          <div class="sv-left">
+            <span class="sv-tag">Presença visual</span>
+            <h3 class="sv-title">A gestão percebida como alto padrão</h3>
+          </div>
+          <p class="sv-desc">Sistema visual que mantém cada comunicado, aviso e campanha com a mesma identidade. O empreendimento é reconhecido em cada detalhe.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="resultados-v2" aria-label="O que a comunicação transforma">
+      <div class="resultados-v2-inner">
+        <div class="resultados-v2-copy">
+          <h2>O que a comunicação<br><em>transforma</em> no condomínio</h2>
+          <p class="resultados-v2-text">O mercado imobiliário cita comunicação organizada ao lado de fachada e manutenção como sinal de boa gestão. Um fator que influencia diretamente a percepção de valor do imóvel.</p>
+        </div>
+        <div class="resultados-v2-panel">
+          <div class="resultado-v2-item destaque">
+            <div class="resultado-v2-head">
+              <svg class="resultado-v2-icon" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+                <path d="M16 5 L19 12 L26 12 L20.5 17 L22.5 25 L16 20.5 L9.5 25 L11.5 17 L6 12 L13 12 Z" stroke-width="1.1" stroke-linejoin="round"/>
+                <path d="M16 9 L17.6 13.5 L22 13.5" stroke-width="0.7" stroke-linecap="round" opacity="0.55"/>
+              </svg>
+            </div>
+            <p>Percepção de valor elevada, imóvel mais valorizado.</p>
+          </div>
+          <div class="resultado-v2-item">
+            <div class="resultado-v2-head">
+              <svg class="resultado-v2-icon" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+                <path d="M16 4 L16 20 M10 14 L16 20 L22 14" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M6 24 L26 24 M8 24 L8 28 L24 28 L24 24" stroke-width="1" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <p>Hábito de coleta seletiva mantido sem reforço constante.</p>
+          </div>
+          <div class="resultado-v2-item">
+            <div class="resultado-v2-head">
+              <svg class="resultado-v2-icon" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+                <path d="M6 14 L16 6 L26 14" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M9 14 L9 26 L23 26 L23 14" stroke-width="1.1" stroke-linejoin="round"/>
+                <path d="M13 26 L13 19 L19 19 L19 26" stroke-width="0.9" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <p>Áreas comuns mais respeitadas.</p>
+          </div>
+          <div class="resultado-v2-item">
+            <div class="resultado-v2-head">
+              <svg class="resultado-v2-icon" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+                <circle cx="12" cy="11" r="4" stroke-width="1.1"/>
+                <path d="M5 25 C5 20 8 17 12 17 C16 17 19 20 19 25" stroke-width="1.1" stroke-linecap="round"/>
+                <path d="M21 10 L27 16 L21 22" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <p>Novos moradores integrados com menos dúvidas.</p>
+          </div>
+          <div class="resultado-v2-item">
+            <div class="resultado-v2-head">
+              <svg class="resultado-v2-icon" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+                <circle cx="10" cy="12" r="3.5" stroke-width="1.1"/>
+                <circle cx="22" cy="12" r="3.5" stroke-width="1.1"/>
+                <path d="M4 25 C4 20 7 18 10 18" stroke-width="1" stroke-linecap="round"/>
+                <path d="M22 18 C25 18 28 20 28 25" stroke-width="1" stroke-linecap="round"/>
+                <path d="M12 24 L20 24" stroke-width="0.9" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <p>Assembleias com moradores mais preparados.</p>
+          </div>
+          <div class="resultado-v2-item">
+            <div class="resultado-v2-head">
+              <svg class="resultado-v2-icon" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+                <circle cx="12" cy="11" r="4" stroke-width="1.1"/>
+                <path d="M5 25 C5 20 8 17 12 17 C16 17 19 20 19 25" stroke-width="1.1" stroke-linecap="round"/>
+                <path d="M21 10 L27 16 L21 22" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <p>Novos moradores integrados rápido, com menos dúvidas e conflitos.</p>
+          </div>
+          <div class="resultado-v2-item">
+            <div class="resultado-v2-head">
+              <svg class="resultado-v2-icon" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+                <path d="M16 5 L19 12 L26 12 L20.5 17 L22.5 25 L16 20.5 L9.5 25 L11.5 17 L6 12 L13 12 Z" stroke-width="1.1" stroke-linejoin="round"/>
+                <path d="M16 9 L17.6 13.5 L22 13.5" stroke-width="0.7" stroke-linecap="round" opacity="0.55"/>
+              </svg>
+            </div>
+            <p>Percepção de valor elevada para o empreendimento.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="planos-wrap" id="planos" aria-label="Planos">
+      <div class="planos">
+        <div class="planos-header">
+          <p class="label" aria-hidden="true">Planos</p>
+          <h2>Encontre o plano que eleva<br>a comunicação do seu <em>condomínio</em></h2>
+        </div>
+        <div class="planos-grid">
+          <article class="plano" aria-label="Plano Essencial">
+            <span class="plano-tag" aria-hidden="true">Essencial</span>
+            <h3 class="plano-name">Essencial</h3>
+            <p class="plano-desc">Para condomínios que precisam de comunicação clara e consistente no dia a dia.</p>
+            <div class="plano-price"><span class="cur">R$</span><span class="val">897</span><span class="per">por mês</span></div>
+            <ul class="features">
+              <li>Calendário mensal de comunicados</li>
+              <li>Avisos e sinalizações</li>
+              <li>Templates editáveis</li>
+              <li>Artes para grupos de WhatsApp</li>
+            </ul>
+            <button class="btn-gold js-scroll-contato">Começar</button>
+          </article>
+          <article class="plano destaque" aria-label="Plano Plus — mais contratado">
+            <span class="plano-tag" aria-hidden="true">Plus · Mais contratado</span>
+            <h3 class="plano-name">Plus</h3>
+            <p class="plano-desc">Para condomínios que querem construir identidade e cultivar uma convivência refinada.</p>
+            <div class="plano-price"><span class="cur">R$</span><span class="val">1.670</span><span class="per">por mês</span></div>
+            <ul class="features">
+              <li>Tudo do plano Essencial</li>
+              <li class="new">Campanhas educacionais temáticas</li>
+              <li class="new">Linha visual personalizada</li>
+              <li class="new">Newsletter mensal</li>
+              <li class="new">Arte para datas comemorativas</li>
+            </ul>
+            <button class="btn-plano main js-scroll-contato">Começar com o Plus</button>
+          </article>
+          <article class="plano" aria-label="Plano Elite">
+            <span class="plano-tag" aria-hidden="true">Elite</span>
+            <h3 class="plano-name">Elite</h3>
+            <p class="plano-desc">Gestão completa da comunicação visual para empreendimentos que exigem excelência em cada detalhe.</p>
+            <div class="plano-price consult"><span class="val">Sob consulta</span><span class="per">proposta personalizada</span></div>
+            <ul class="features">
+              <li>Tudo do plano Plus</li>
+              <li class="new">Consultoria estratégica com automações de IA</li>
+              <li class="new">Vídeos curtos e comunicados animados</li>
+              <li class="new">Central de comunicação personalizada</li>
+              <li class="new">Relatório mensal estratégico</li>
+            </ul>
+            <button class="btn-gold js-scroll-contato">Solicitar proposta</button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="depo-wrap" aria-label="Depoimentos">
+      <div class="depo">
+        <div class="depo-header">
+          <p class="depo-label" aria-hidden="true">Depoimentos</p>
+          <h2 class="depo-title">O que muda quando a gestão<br><em>passa a ser percebida.</em></h2>
+        </div>
+        <div class="depo-slider" id="depoSlider" aria-live="polite" aria-atomic="true">
+          <div class="depo-slide active" role="group" aria-label="Depoimento 1 de 4">
+            <blockquote class="depo-quote">"Depois que mudamos a comunicação, um morador perguntou o que tinha mudado na gestão. Nada tinha mudado. Só a forma de comunicar."</blockquote>
+            <div class="depo-line" aria-hidden="true"></div>
+            <p class="depo-name">Ricardo T.</p>
+            <p class="depo-condo">Síndico há 12 anos · Curitiba, PR</p>
+          </div>
+          <div class="depo-slide" role="group" aria-label="Depoimento 2 de 4">
+            <blockquote class="depo-quote">"As reclamações na portaria sobre comunicação caíram pela metade. Os moradores passaram a confiar mais nas informações porque elas chegavam com clareza."</blockquote>
+            <div class="depo-line" aria-hidden="true"></div>
+            <p class="depo-name">Fernanda M.</p>
+            <p class="depo-condo">Síndica profissional · São Paulo, SP</p>
+          </div>
+          <div class="depo-slide" role="group" aria-label="Depoimento 3 de 4">
+            <blockquote class="depo-quote">"Na assembleia, um morador elogiou a organização do condomínio sem saber que era eu o síndico. Ele percebeu a gestão pela comunicação, não por me conhecer."</blockquote>
+            <div class="depo-line" aria-hidden="true"></div>
+            <p class="depo-name">Marcos A.</p>
+            <p class="depo-condo">Síndico morador · Florianópolis, SC</p>
+          </div>
+          <div class="depo-slide" role="group" aria-label="Depoimento 4 de 4">
+            <blockquote class="depo-quote">"Antes eu repetia as mesmas regras todo mês e nada mudava. Com as campanhas educacionais, o comportamento nas áreas comuns mudou sem eu precisar confrontar ninguém."</blockquote>
+            <div class="depo-line" aria-hidden="true"></div>
+            <p class="depo-name">Patrícia L.</p>
+            <p class="depo-condo">Síndica há 7 anos · Belo Horizonte, MG</p>
+          </div>
+        </div>
+        <nav class="depo-nav" aria-label="Navegação de depoimentos">
+          <button class="depo-arrow" type="button" id="depoPrev" aria-label="Depoimento anterior">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14.5 6 L8.5 12 L14.5 18" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="depo-dots" id="depoDots">
+            <button class="depo-dot active" aria-label="Ir para depoimento 1"></button>
+            <button class="depo-dot" aria-label="Ir para depoimento 2"></button>
+            <button class="depo-dot" aria-label="Ir para depoimento 3"></button>
+            <button class="depo-dot" aria-label="Ir para depoimento 4"></button>
+          </div>
+          <button class="depo-arrow" type="button" id="depoNext" aria-label="Próximo depoimento">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9.5 6 L15.5 12 L9.5 18" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </nav>
+      </div>
+    </section>
+
+    <section class="impacto-wrap" aria-label="Chamada para ação">
+      <div class="impacto-bg" role="img" aria-label="Fundo escuro premium"></div>
+      <div class="impacto-inner">
+        <p class="impacto-eyebrow">Comunicação visual · Curitiba</p>
+        <h2 class="impacto-titulo">Seu condomínio é de alto padrão.<br>Sua comunicação interna deve estar à <em>altura.</em></h2>
+        <a href="#contato" class="impacto-btn">Solicitar diagnóstico gratuito</a>
+      </div>
+    </section>
+
+    <section class="ct-c-wrap" id="contato" aria-label="Contato">
+      <div class="ct-c-top">
+        <p class="ct-c-eyebrow" aria-hidden="true">Contato</p>
+        <h2>Pronto para transformar a comunicação<br>do seu <em>condomínio?</em></h2>
+        <p>Atendo síndicos e administradoras em Curitiba. Diagnóstico gratuito em até 24 horas.</p>
+      </div>
+      <div class="ct-c-cards">
+        <div class="ct-c-card">
+          <p class="ct-c-card-label">WhatsApp</p>
+          <p class="ct-c-card-val"><a href="https://wa.me/5541991296218" target="_blank" rel="noopener noreferrer">(41) 99129-6218</a></p>
+        </div>
+        <div class="ct-c-card">
+          <p class="ct-c-card-label">E-mail</p>
+          <p class="ct-c-card-val"><a href="mailto:contato@bawzen.com">contato@bawzen.com</a></p>
+        </div>
+        <div class="ct-c-card">
+          <p class="ct-c-card-label">Localização</p>
+          <p class="ct-c-card-val">Curitiba, PR · Brasil</p>
+        </div>
+      </div>
+      <div class="ct-c-form">
+        <form class="form-lux" id="formContato" novalidate>
+          <label for="f-condominio" class="sr-only">Nome do condomínio</label>
+          <input type="text" id="f-condominio" name="condominio" placeholder="Nome do condomínio" required autocomplete="organization" />
+
+          <label for="f-nome" class="sr-only">Seu nome</label>
+          <input type="text" id="f-nome" name="nome" placeholder="Seu nome" required autocomplete="name" />
+
+          <label for="f-telefone" class="sr-only">Telefone / WhatsApp</label>
+          <input type="tel" id="f-telefone" name="telefone" placeholder="Telefone / WhatsApp" required autocomplete="tel" />
+
+          <input type="hidden" name="plano" id="plano-value" value="" />
+
+          <div class="custom-select" id="custom-plano" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-label="Plano de interesse">
+            <button type="button" class="custom-select-trigger" id="custom-plano-trigger">
+              <span class="custom-select-label">Plano de interesse</span>
+              <span class="custom-select-arrow" aria-hidden="true"></span>
+            </button>
+            <div class="custom-select-dropdown" role="listbox" aria-label="Opções de plano">
+              <div class="custom-select-option" role="option" data-value="Essencial">Essencial</div>
+              <div class="custom-select-option" role="option" data-value="Plus">Plus</div>
+              <div class="custom-select-option" role="option" data-value="Elite">Elite</div>
+              <div class="custom-select-option" role="option" data-value="Diagnóstico gratuito">Quero o diagnóstico gratuito primeiro</div>
+            </div>
+          </div>
+
+          <label for="f-mensagem" class="sr-only">Mensagem (opcional)</label>
+          <textarea id="f-mensagem" name="mensagem" placeholder="Mensagem (opcional)"></textarea>
+
+          <button type="submit" class="btn-form-lux">Solicitar diagnóstico gratuito</button>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="footer-logo">
+      <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" width="22" height="22" aria-hidden="true">
+        <circle cx="14" cy="14" r="13" stroke="#C9A96E" stroke-width="0.7"/>
+        <text x="14" y="19.5" text-anchor="middle" fill="#C9A96E" font-family="Cormorant Garamond, serif" font-size="14" font-style="italic" font-weight="300">B</text>
+      </svg>
+      <span><em>Bawzen</em> Ecoville</span>
+    </div>
+    <p>Comunicação Visual para Condomínios de Alto Padrão · Curitiba, PR</p>
+  </footer>
+
+  <script>
+    (function () {
+      'use strict';
+
+      /* ---- Nav scroll ---- */
+      var navEl = document.querySelector('nav');
+      var navTicking = false;
+      function updateNav() { navEl.classList.toggle('scrolled', window.scrollY > 24); navTicking = false; }
+      window.addEventListener('scroll', function () {
+        if (!navTicking) { window.requestAnimationFrame(updateNav); navTicking = true; }
+      }, { passive: true });
+      updateNav();
+
+      /* ---- Cursor glow (desktop only) ---- */
+      if (window.matchMedia('(pointer: fine)').matches) {
+        var glow = document.createElement('div');
+        glow.setAttribute('aria-hidden', 'true');
+        glow.style.cssText = 'position:fixed;top:0;left:0;width:320px;height:320px;pointer-events:none;z-index:9999;border-radius:50%;background:radial-gradient(circle,rgba(201,169,110,0.04) 0%,rgba(201,169,110,0.015) 35%,transparent 65%);transform:translate(-50%,-50%);transition:opacity 0.4s ease;opacity:0;will-change:transform;';
+        document.body.appendChild(glow);
+        var mx = 0, my = 0, active = false;
+        document.addEventListener('mousemove', function (e) {
+          mx = e.clientX; my = e.clientY;
+          if (!active) { active = true; glow.style.opacity = '1'; }
+          glow.style.transform = 'translate(calc(' + mx + 'px - 50%),calc(' + my + 'px - 50%))';
+        }, { passive: true });
+        document.addEventListener('mouseleave', function () { glow.style.opacity = '0'; active = false; });
+        document.addEventListener('mouseenter', function () { if (mx || my) { glow.style.opacity = '1'; active = true; } });
+      }
+
+      /* ---- Planos: scroll to contato ---- */
+      document.querySelectorAll('.js-scroll-contato').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          document.getElementById('contato').scrollIntoView({ behavior: 'smooth' });
+        });
+      });
+
+      /* ---- Planos scroll animation + Plus card inner stagger ---- */
+      var ease = 'cubic-bezier(0.22, 1, 0.36, 1)';
+      var cards = document.querySelectorAll('.plano');
+      cards.forEach(function (c) { c.classList.add('anim-hidden'); });
+      var grid = document.querySelector('.planos-grid');
+      if (grid) {
+        var destaque = document.querySelector('.plano.destaque');
+        var innerEls = destaque ? Array.from(destaque.querySelectorAll('.plano-tag,.plano-name,.plano-desc,.plano-price,.features li,.btn-plano.main')) : [];
+        innerEls.forEach(function (el) { el.style.opacity = '0'; el.style.transform = 'translateY(14px)'; });
+        var obsPlanos = new IntersectionObserver(function (entries) {
+          if (entries[0].isIntersecting) {
+            cards.forEach(function (c, i) { setTimeout(function () { c.classList.remove('anim-hidden'); }, i * 130); });
+            var base = 130 + 650;
+            innerEls.forEach(function (el, i) {
+              setTimeout(function () {
+                el.style.transition = 'opacity 0.55s ' + ease + ',transform 0.55s ' + ease;
+                el.style.opacity = '';
+                el.style.transform = '';
+              }, base + i * 80);
+            });
+            obsPlanos.disconnect();
+          }
+        }, { threshold: 0.15 });
+        obsPlanos.observe(grid);
+      }
+
+      /* ---- Scroll reveal ---- */
+      if (window.IntersectionObserver) {
+        function hide(el) { el.style.opacity = '0'; el.style.transform = 'translateY(26px)'; }
+        function show(el, delay) {
+          setTimeout(function () {
+            el.style.transition = 'opacity 0.82s ' + ease + ',transform 0.82s ' + ease;
+            el.style.opacity = '';
+            el.style.transform = '';
+          }, delay || 0);
+        }
+        function watchStagger(container, selector, gap) {
+          var els = Array.from(container.querySelectorAll(selector));
+          if (!els.length) return;
+          els.forEach(hide);
+          var obs = new IntersectionObserver(function (entries) {
+            if (entries[0].isIntersecting) { els.forEach(function (el, i) { show(el, i * gap); }); obs.disconnect(); }
+          }, { threshold: 0.1 });
+          obs.observe(container);
+        }
+        function watchSequence(container, selectors, gap) {
+          var els = selectors.map(function (s) { return container.querySelector(s); }).filter(Boolean);
+          els.forEach(hide);
+          var obs = new IntersectionObserver(function (entries) {
+            if (entries[0].isIntersecting) { els.forEach(function (el, i) { show(el, i * gap); }); obs.disconnect(); }
+          }, { threshold: 0.18 });
+          obs.observe(container);
+        }
+        var dadosInner = document.querySelector('.dados-a-inner');
+        if (dadosInner) watchStagger(dadosInner, '.dado-a', 180);
+        var impactoInner = document.querySelector('.impacto-inner');
+        if (impactoInner) watchSequence(impactoInner, ['.impacto-eyebrow', '.impacto-titulo', '.impacto-btn'], 130);
+        var depo = document.querySelector('.depo');
+        if (depo) watchSequence(depo, ['.depo-label', '.depo-title', '.depo-quote', '.depo-line', '.depo-name', '.depo-condo'], 110);
+        var panel = document.querySelector('.resultados-v2-panel');
+        if (panel) watchStagger(panel, '.resultado-v2-item', 110);
+      }
+
+      /* ---- Carrossel de depoimentos ---- */
+      var slides = document.querySelectorAll('.depo-slide');
+      var dots   = document.querySelectorAll('#depoDots .depo-dot');
+      var prev   = document.getElementById('depoPrev');
+      var next   = document.getElementById('depoNext');
+      if (slides.length && prev && next) {
+        var current = 0;
+        function goSlide(n) {
+          slides[current].classList.remove('active');
+          dots[current].classList.remove('active');
+          current = (n + slides.length) % slides.length;
+          slides[current].classList.add('active');
+          dots[current].classList.add('active');
+        }
+        prev.addEventListener('click', function () { goSlide(current - 1); });
+        next.addEventListener('click', function () { goSlide(current + 1); });
+        dots.forEach(function (dot, i) { dot.addEventListener('click', function () { goSlide(i); }); });
+      }
+
+      /* ---- Custom select ---- */
+      var selectEl = document.getElementById('custom-plano');
+      var trigger  = document.getElementById('custom-plano-trigger');
+      if (selectEl && trigger) {
+        trigger.addEventListener('click', function () {
+          var open = selectEl.classList.toggle('open');
+          selectEl.setAttribute('aria-expanded', open ? 'true' : 'false');
+          document.addEventListener('click', function closeOut(e) {
+            if (!selectEl.contains(e.target)) {
+              selectEl.classList.remove('open');
+              selectEl.setAttribute('aria-expanded', 'false');
+              document.removeEventListener('click', closeOut);
+            }
+          });
+        });
+        selectEl.querySelectorAll('.custom-select-option').forEach(function (opt) {
+          opt.addEventListener('click', function () {
+            var value = opt.getAttribute('data-value');
+            trigger.querySelector('.custom-select-label').textContent = value;
+            trigger.classList.add('selected');
+            selectEl.querySelectorAll('.custom-select-option').forEach(function (o) {
+              o.classList.toggle('active', o === opt);
+            });
+            document.getElementById('plano-value').value = value;
+            selectEl.classList.remove('open');
+            selectEl.setAttribute('aria-expanded', 'false');
+          });
+        });
+      }
+
+      /* ---- Formulário ---- */
+      var form = document.getElementById('formContato');
+      if (form) {
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          var condominio = form.condominio.value.trim();
+          var nome      = form.nome.value.trim();
+          var telefone  = form.telefone.value.trim();
+          var plano     = form.plano.value || 'Não informado';
+          var mensagem  = form.mensagem.value.trim();
+          var texto = [
+            'Olá, vim pelo site da Bawzen e gostaria de solicitar um diagnóstico gratuito.',
+            '',
+            'Condomínio: ' + condominio,
+            'Nome: ' + nome,
+            'Telefone: ' + telefone,
+            'Plano de interesse: ' + plano,
+            mensagem ? 'Mensagem: ' + mensagem : ''
+          ].filter(Boolean).join('\n');
+          window.open('https://wa.me/5541991296218?text=' + encodeURIComponent(texto), '_blank', 'noopener,noreferrer');
+          var btn = form.querySelector('button[type="submit"]');
+          btn.textContent = 'Redirecionando para o WhatsApp...';
+          btn.style.background = '#2D6B47';
+          btn.disabled = true;
+          setTimeout(function () {
+            btn.textContent = 'Solicitar diagnóstico gratuito';
+            btn.style.background = '';
+            btn.disabled = false;
+            form.reset();
+            trigger && trigger.querySelector('.custom-select-label') && (trigger.querySelector('.custom-select-label').textContent = 'Plano de interesse');
+            trigger && trigger.classList.remove('selected');
+          }, 3500);
+        });
+      }
+
+    })();
+  </script>
+</body>
+</html>

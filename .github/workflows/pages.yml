@@ -1,0 +1,48 @@
+name: Publicar Bauzhen
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Baixar projeto
+        uses: actions/checkout@v4
+
+      - name: Montar site
+        run: |
+          mkdir -p _site
+          cp bauzhen-landing/index.html _site/index.html
+          cp bauzhen-landing/hero-new.jpg _site/hero-new.jpg
+          cp bauzhen-landing/hero2.jpg _site/hero2.jpg
+          cp bauzhen-landing/impacto-bg.png _site/impacto-bg.png
+          cp bauzhen-landing/favicon.svg _site/favicon.svg
+          cp bauzhen-design-system.html _site/design-system.html
+
+      - name: Configurar GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Preparar arquivos
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - name: Publicar
+        id: deployment
+        uses: actions/deploy-pages@v4
+

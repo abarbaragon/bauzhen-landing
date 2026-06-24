@@ -1,0 +1,17 @@
+bauzhen-landing/node_modules/
+bauzhen-landing/.agents/
+bauzhen-landing/.claude/
+bauzhen-landing/.codex/
+bauzhen-landing/.git/
+bauzhen-landing/package-lock.json
+bauzhen-landing/package.json
+bauzhen-landing/bawzen-home.png
+bauzhen-landing.rar
+referencias/
+.claude/
+pesquisa-copy.md
+ChatGPT Image*.png
+*.jpg
+
+!bauzhen-landing/*.jpg
+
