@@ -33,6 +33,8 @@ jobs:
           cp bauzhen-landing/impacto-bg.png _site/impacto-bg.png
           cp bauzhen-landing/favicon.svg _site/favicon.svg
           cp bauzhen-design-system.html _site/design-system.html
+          mkdir -p _site/proposta-galvao-silva
+          cp proposta-galvao-silva/index.html _site/proposta-galvao-silva/index.html
 
       - name: Configurar GitHub Pages
         uses: actions/configure-pages@v5
