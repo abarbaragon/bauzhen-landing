@@ -65,11 +65,12 @@
   input:focus{outline:2px solid var(--pink); outline-offset:2px}
   .olho{
     position:absolute; right:6px; top:50%; transform:translateY(-50%);
-    width:32px; height:32px; border:0; background:transparent; cursor:pointer;
+    width:32px; height:32px; min-height:0; margin:0; border:0;
+    background:transparent; box-shadow:none; cursor:pointer;
     display:flex; align-items:center; justify-content:center;
     color:var(--muted); border-radius:8px; padding:0;
   }
-  .olho:hover{ color:var(--pink-dark); }
+  .olho:hover{ color:var(--pink-dark); background:transparent; box-shadow:none; transform:translateY(-50%); }
   .olho svg{ width:18px; height:18px; }
   button{
     width:100%; margin-top:14px; padding:14px 24px; min-height:48px;
