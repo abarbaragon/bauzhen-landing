@@ -35,6 +35,8 @@ jobs:
           cp bauzhen-design-system.html _site/design-system.html
           mkdir -p _site/proposta-galvao-silva
           cp proposta-galvao-silva/index.html _site/proposta-galvao-silva/index.html
+          mkdir -p _site/proposta-galvao-silva-apresentacao
+          cp proposta-galvao-silva-apresentacao/index.html _site/proposta-galvao-silva-apresentacao/index.html
 
       - name: Configurar GitHub Pages
         uses: actions/configure-pages@v5
